@@ -1,0 +1,19 @@
+{
+  "item.csmm.copper_ingot": "Lingot de cuivre",
+  "item.csmm.copper_stick": "Bâton de cuivre",
+  "block.csmm.copper_block": "Bloc de cuivre",
+  "item.csmm.copper_sword": "Épée en cuivre",
+  "item.csmm.copper_pickaxe": "Pioche en cuivre",
+  "item.csmm.copper_shovel": "Pelle en cuivre",
+  "item.csmm.copper_axe": "Hache en cuivre",
+  "block.csmm.temp_block": "Bloc compteur",
+  "itemGroup.BLOCKS": "Blocs",
+  "itemGroup.ITEMS": "Items",
+  "block.csmm.reinforced_block": "Block renforcé",
+  "item.csmm.platinum_ingot": "Lingot de Platinum",
+  "item.csmm.platinum_sword": "Épée de Platinum",
+  "item.csmm.platinum_chestplate": "Plastron de Platinum",
+  "item.csmm.platinum_helmet": "Casque de Platinum",
+  "item.csmm.platinum_leggings": "Pantalon de Platinum",
+  "item.csmm.platinum_boots": "Bottes en Platinum"
+}

@@ -1,0 +1,137 @@
+{
+  "type": {
+    "name": "minecraft:ile",
+    "ultrawarm": false,
+    "natural": true,
+    "piglin_safe": false,
+    "respawn_anchor_works": false,
+    "bed_works": true,
+    "has_raids": true,
+    "has_skylight": true,
+    "has_ceiling": false,
+    "coordinate_scale": 1,
+    "ambient_light": 1,
+    "logical_height": 256,
+    "infiniburn": "minecraft:infiniburn_overworld"
+  },
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": -191445989,
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "seed": -191445989,
+      "altitude_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "temperature_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "humidity_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "weirdness_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "biomes": [
+        {
+          "biome": "minecraft:end_highlands",
+          "parameters": {
+            "altitude": 1,
+            "temperature": -1,
+            "humidity": 1,
+            "weirdness": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "minecraft:giant_tree_taiga_hills",
+          "parameters": {
+            "altitude": 1,
+            "temperature": 0.5,
+            "humidity": 1,
+            "weirdness": 0,
+            "offset": 0.2
+          }
+        },
+        {
+          "biome": "minecraft:basalt_deltas",
+          "parameters": {
+            "altitude": -1,
+            "temperature": 1,
+            "humidity": 0,
+            "weirdness": -1,
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "settings": {
+      "name": "minecraft:floating_islands",
+      "bedrock_roof_position": -10,
+      "bedrock_floor_position": 0,
+      "sea_level": 63,
+      "disable_mob_generation": false,
+      "default_block": {
+        "Name": "minecraft:stone"
+      },
+      "default_fluid": {
+        "Name": "minecraft:air",
+        "Properties": {
+          "level": "0"
+        }
+      },
+      "noise": {
+        "height": 256,
+        "density_factor": 1,
+        "density_offset": -0.46875,
+        "size_horizontal": 1,
+        "size_vertical": 2,
+        "simplex_surface_noise": true,
+        "random_density_offset": true,
+        "island_noise_override": true,
+        "amplified": true,
+        "sampling": {
+          "xz_scale": 1,
+          "y_scale": 1,
+          "xz_factor": 80,
+          "y_factor": 160
+        },
+        "bottom_slide": {
+          "target": -30,
+          "size": 0,
+          "offset": 0
+        },
+        "top_slide": {
+          "target": -10,
+          "size": 3,
+          "offset": 0
+        }
+      },
+      "structures": {
+        "structures": {
+          "minecraft:mansion": {
+            "spacing": 1000,
+            "separation": 100,
+            "salt": 0
+          }
+        }
+      }
+    }
+  }
+}

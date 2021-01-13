@@ -1,18 +1,16 @@
 package fr.knightmar.csmm;
 
 
-import fr.knightmar.csmm.init.ModBlocks;
-import fr.knightmar.csmm.init.ModFeatures;
-import fr.knightmar.csmm.init.ModItems;
-import fr.knightmar.csmm.init.ModTileEntities;
+import fr.knightmar.csmm.entities.CrocoEntity;
+import fr.knightmar.csmm.entities.HogEntity;
+import fr.knightmar.csmm.init.*;
+/*import fr.knightmar.csmm.init.ModFeatures;*/
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.GenerationStage;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -47,27 +45,35 @@ public class CSMM {
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
+        ModEntityType.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoading);
+        //MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoading);
 
 
     }
 
-    public void onBiomeLoading(BiomeLoadingEvent event){
+    /*public void onBiomeLoading(BiomeLoadingEvent event){
         if(event.getName().equals(Biomes.PLAINS.getLocation())){
 
             event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ModFeatures.DIAMOND_BLOCK);
 
         }
+    }*/
+
+    private void setup(final FMLCommonSetupEvent event) {
+        DeferredWorkQueue.runLater(() -> {
+            GlobalEntityTypeAttributes.put(ModEntityType.HOG.get(), HogEntity.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(ModEntityType.CROCO.get(), CrocoEntity.setCustomAttributes().create());
+        });
+
+        ModFeatures features = new ModFeatures();
+        features.init();
+        MinecraftForge.EVENT_BUS.register(features);
+
     }
 
-    private void setup(FMLCommonSetupEvent e)
-    {
-
-    }
-
-    private void clientSetup(FMLClientSetupEvent e)
+    private void clientSetup(final FMLClientSetupEvent event)
     {
 
     }

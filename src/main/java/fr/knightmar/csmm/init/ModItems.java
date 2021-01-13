@@ -2,6 +2,7 @@ package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.CSMM;
 import fr.knightmar.csmm.item.ArmorMaterial;
+import fr.knightmar.csmm.item.ModSpawnEggItem;
 import fr.knightmar.csmm.utils.CustomItemTiers;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -20,6 +21,11 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_STICK = ITEMS.register("copper_stick", () -> new Item(new Item.Properties().group(CSMM.ITEMS)));
 
     //items
+    public static final RegistryObject<ModSpawnEggItem> HOG_SPAWN_EGG = ITEMS.register("hog_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityType.HOG, 0xE1A68B, 0x99593B, new Item.Properties().group(CSMM.ITEMS)));
+
+    public static final RegistryObject<ModSpawnEggItem> CROCO_SPAWN_EGG = ITEMS.register("croco_spawn_egg",
+            () -> new ModSpawnEggItem(ModEntityType.CROCO, 0xE1A68B, 0x99593B, new Item.Properties().group(CSMM.ITEMS)));
 
 
     //outils
@@ -30,7 +36,7 @@ public class ModItems {
 
 
     //armure & armes
-    public static final RegistryObject<SwordItem> PLATINUM_SWORD = ITEMS.register("platinum_sword",()-> new SwordItem(CustomItemTiers.PLATINUM, 5,-10f, new Item.Properties().maxStackSize(1).group(CSMM.ITEMS)));
+    public static final RegistryObject<SwordItem> PLATINUM_SWORD = ITEMS.register("platinum_sword",()-> new SwordItem(CustomItemTiers.PLATINUM, 5,10f, new Item.Properties().maxStackSize(1).group(CSMM.ITEMS)));
 
     public static final RegistryObject<ArmorItem> PLATINUM_CHESTPLATE = ITEMS.register("platinum_chestplate",()->new ArmorItem(ArmorMaterial.PLATINUM, EquipmentSlotType.CHEST, new Item.Properties().maxStackSize(1).group(CSMM.ITEMS)));
     public static final RegistryObject<ArmorItem> PLATINUM_HELMET = ITEMS.register("platinum_helmet",()->new ArmorItem(ArmorMaterial.PLATINUM, EquipmentSlotType.HEAD, new Item.Properties().maxStackSize(1).group(CSMM.ITEMS)));

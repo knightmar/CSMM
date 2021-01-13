@@ -1,10 +1,7 @@
 package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.CSMM;
-import fr.knightmar.csmm.blocks.BlockCopper;
-import fr.knightmar.csmm.blocks.BlockCopperOre;
-import fr.knightmar.csmm.blocks.BlockReinforced_stone;
-import fr.knightmar.csmm.blocks.BlockTemp;
+import fr.knightmar.csmm.blocks.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -28,6 +25,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> TEMP_BLOCK = createBlock("temp_block", BlockTemp::new );
     public static final RegistryObject<Block> REINFORCED_STONE = createBlock("reinforced_stone" , BlockReinforced_stone::new);
     public static final RegistryObject<Block> COPPER_ORE = createBlock("copper_ore", BlockCopperOre::new);
+    public static final RegistryObject<Block> SOAP_BLOCK = createBlock("soap_block", BlockSoap::new);
 
 
 

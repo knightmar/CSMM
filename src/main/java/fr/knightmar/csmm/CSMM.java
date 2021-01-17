@@ -3,6 +3,7 @@ package fr.knightmar.csmm;
 
 import fr.knightmar.csmm.entities.CrocoEntity;
 import fr.knightmar.csmm.entities.HogEntity;
+import fr.knightmar.csmm.entities.TestEntity;
 import fr.knightmar.csmm.init.*;
 /*import fr.knightmar.csmm.init.ModFeatures;*/
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -48,23 +49,18 @@ public class CSMM {
         ModEntityType.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
-        //MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoading);
+
 
 
     }
 
-    /*public void onBiomeLoading(BiomeLoadingEvent event){
-        if(event.getName().equals(Biomes.PLAINS.getLocation())){
 
-            event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ModFeatures.DIAMOND_BLOCK);
-
-        }
-    }*/
 
     private void setup(final FMLCommonSetupEvent event) {
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(ModEntityType.HOG.get(), HogEntity.setCustomAttributes().create());
             GlobalEntityTypeAttributes.put(ModEntityType.CROCO.get(), CrocoEntity.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(ModEntityType.TEST.get(), TestEntity.setCustomAttributes().create());
         });
 
         ModFeatures features = new ModFeatures();

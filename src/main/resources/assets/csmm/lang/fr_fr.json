@@ -15,5 +15,7 @@
   "item.csmm.platinum_chestplate": "Plastron de Platinum",
   "item.csmm.platinum_helmet": "Casque de Platinum",
   "item.csmm.platinum_leggings": "Pantalon de Platinum",
-  "item.csmm.platinum_boots": "Bottes en Platinum"
+  "item.csmm.platinum_boots": "Bottes en Platinum",
+  "entity.csmm.hog": "Sanglier",
+  "entity.csmm.croco:": "Crocodile"
 }

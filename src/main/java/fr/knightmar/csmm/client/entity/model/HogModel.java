@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class HogModel<T extends HogEntity> extends EntityModel<T> {
+public class HogModel<H extends HogEntity> extends EntityModel<H> {
 
     private final ModelRenderer head;
     private final ModelRenderer body;
@@ -64,7 +64,7 @@ public class HogModel<T extends HogEntity> extends EntityModel<T> {
     }
 
     @Override
-    public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setRotationAngles(H entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
         this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
         this.body.rotateAngleX = ((float)Math.PI / 2F);

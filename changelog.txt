@@ -272,7 +272,7 @@ Build: 1.16.2-33.0.32 - Tue Sep 01 18:36:21 GMT 2020
 	cpw:
 		Move the "modloading" thread activity onto _our_ worker pool. It turns out that the vanilla worker pool can deadlock during stitching if it's insufficiently large, if modloader "waitForTransition" is also a worker member of that pool.
 		
-		Closes #7293 (to reproduce issue easily, modify Util.func_240979_a_ and change the values in the MathHelper.clamp call). I've verified that 3 and below for "max" cause the problem. (I didn't test a whole range of values, just sufficient to reproduce problem and verify fix). Note that setting it to zero (and using the "direct executor" that's inaccessible in normal operation) works as well with this fix.
+		Closes #7293 (to reproduce issue easily, modify Util.func_240979_a_ and change the values in the MathHelper.clamp call). I've verified that 3 and below for "max" cause the problem. (I didn't TestModel a whole range of values, just sufficient to reproduce problem and verify fix). Note that setting it to zero (and using the "direct executor" that's inaccessible in normal operation) works as well with this fix.
 		
 		Signed-off-by: cpw <cpw+github@weeksfamily.ca>
 
@@ -568,7 +568,7 @@ Build: 1.16.1-32.0.86 - Mon Jul 27 22:56:16 GMT 2020
 =========
 Build: 1.16.1-32.0.85 - Mon Jul 27 21:36:07 GMT 2020
 	dev:
-		Fix SleepingTimeCheckEvent not being fired in initial sleep test. (#7005)
+		Fix SleepingTimeCheckEvent not being fired in initial sleep TestModel. (#7005)
 
 =========
 Build: 1.16.1-32.0.84 - Mon Jul 27 21:30:24 GMT 2020
@@ -936,7 +936,7 @@ Build: 1.16.1-32.0.18 - Fri Jun 26 16:56:37 GMT 2020
 Build: 1.16.1-32.0.17 - Fri Jun 26 15:20:37 GMT 2020
 	David Quintana:
 		Fix create method.
-		Fix test mods not loading correctly.
+		Fix TestModel mods not loading correctly.
 
 =========
 Build: 1.16.1-32.0.16 - Fri Jun 26 14:43:19 GMT 2020

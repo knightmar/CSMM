@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class CrocoModel<T extends Entity> extends EntityModel<T> {
+public class CrocoModel<C extends Entity> extends EntityModel<C> {
 	private final ModelRenderer corps;
 	private final ModelRenderer queue;
 	private final ModelRenderer cube_r1;

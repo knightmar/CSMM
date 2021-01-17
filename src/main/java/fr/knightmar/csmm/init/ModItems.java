@@ -25,7 +25,7 @@ public class ModItems {
             () -> new ModSpawnEggItem(ModEntityType.HOG, 0xE1A68B, 0x99593B, new Item.Properties().group(CSMM.ITEMS)));
 
     public static final RegistryObject<ModSpawnEggItem> CROCO_SPAWN_EGG = ITEMS.register("croco_spawn_egg",
-            () -> new ModSpawnEggItem(ModEntityType.CROCO, 0xE1A68B, 0x99593B, new Item.Properties().group(CSMM.ITEMS)));
+            () -> new ModSpawnEggItem(ModEntityType.CROCO, 0xA1A67B, 0x99F535, new Item.Properties().group(CSMM.ITEMS)));
 
 
     //outils

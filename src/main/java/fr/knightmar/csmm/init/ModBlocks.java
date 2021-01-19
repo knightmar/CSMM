@@ -26,6 +26,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> REINFORCED_STONE = createBlock("reinforced_stone" , BlockReinforced_stone::new);
     public static final RegistryObject<Block> COPPER_ORE = createBlock("copper_ore", BlockCopperOre::new);
     public static final RegistryObject<Block> SOAP_BLOCK = createBlock("soap_block", BlockSoap::new);
+    public static final RegistryObject<Block> PLATINIUM_BLOCK = createBlock("platinium_block", PlatininumBlock::new);
 
 
 

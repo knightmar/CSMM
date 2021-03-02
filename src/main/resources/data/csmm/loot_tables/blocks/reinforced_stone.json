@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "csmm:reinforced_block"
+          "name": "csmm:reinforced_stone"
         }
       ],
       "conditions": [

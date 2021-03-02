@@ -7,7 +7,7 @@ import net.minecraft.util.registry.Registry;
 @net.minecraftforge.registries.ObjectHolder("csmm")
 public class SoundEvents {
 
-    public static final SoundEvent CROCO_AMBIANT = register("entity.croco.ambiant");
+    public static final SoundEvent CROCO_AMBIANT = register("sound/croco-ambient.ogg");
 
 
 

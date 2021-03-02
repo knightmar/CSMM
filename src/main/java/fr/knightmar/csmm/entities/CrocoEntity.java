@@ -7,10 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
@@ -26,6 +23,7 @@ import javax.annotation.Nullable;
 
 public class CrocoEntity extends TameableEntity {
 
+    private static double speed = 0.25D ;
     private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.COOKED_MUTTON, Items.MUTTON, Items.COOKED_CHICKEN, Items.COOKED_BEEF, Items.BEEF);
 
 
@@ -39,7 +37,7 @@ public class CrocoEntity extends TameableEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 30.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.15D);
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, speed);
     }
 
 
@@ -48,10 +46,13 @@ public class CrocoEntity extends TameableEntity {
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
-        this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(0, new SwimGoal(this));
+        this.goalSelector.addGoal(1, new PanicGoal(this, speed * 3));
+        this.goalSelector.addGoal(2, new BreedGoal(this, speed * 2.5));
+        this.goalSelector.addGoal(3, new TemptGoal(this, speed * 2.5, false, TEMPTATION_ITEMS));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, speed));
+        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
 
 
     }

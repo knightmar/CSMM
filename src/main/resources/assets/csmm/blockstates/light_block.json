@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "csmm:block/light_block"
+    }
+  }
+}

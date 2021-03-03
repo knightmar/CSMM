@@ -47,12 +47,14 @@ public class CrocoEntity extends TameableEntity {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, speed * 3));
-        this.goalSelector.addGoal(2, new BreedGoal(this, speed * 2.5));
-        this.goalSelector.addGoal(3, new TemptGoal(this, speed * 2.5, false, TEMPTATION_ITEMS));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, speed));
-        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 6.0F));
-        this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
+        this.goalSelector.addGoal(9, new RandomWalkingGoal(this , speed));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.1D, TEMPTATION_ITEMS, false));
+        this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+        this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
+
 
 
     }

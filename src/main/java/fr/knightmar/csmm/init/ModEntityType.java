@@ -23,7 +23,7 @@ public class ModEntityType {
 
     public static final RegistryObject<EntityType<CrocoEntity>> CROCO = ENTITY_TYPES.register("croco",
             () -> EntityType.Builder.create(CrocoEntity::new, EntityClassification.CREATURE)
-                    .size(1.0f, 1.0f) // Hitbox Size
+                    .size(1.5f, 0.6f) // Hitbox Size
                     .build(new ResourceLocation(CSMM.MODID, "croco").toString()));
 
     public static final RegistryObject<EntityType<TestEntity>> TEST = ENTITY_TYPES.register("test",

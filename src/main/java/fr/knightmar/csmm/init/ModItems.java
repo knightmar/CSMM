@@ -22,10 +22,10 @@ public class ModItems {
 
     //items
     public static final RegistryObject<ModSpawnEggItem> HOG_SPAWN_EGG = ITEMS.register("hog_spawn_egg",
-            () -> new ModSpawnEggItem(ModEntityType.HOG, 0xE1A68B, 0x99593B, new Item.Properties().group(CSMM.ITEMS)));
+            () -> new ModSpawnEggItem(ModEntityType.HOG, 0xAC6000, 0x705128, new Item.Properties().group(CSMM.ITEMS)));
 
     public static final RegistryObject<ModSpawnEggItem> CROCO_SPAWN_EGG = ITEMS.register("croco_spawn_egg",
-            () -> new ModSpawnEggItem(ModEntityType.CROCO, 0xA1A67B, 0x99F535, new Item.Properties().group(CSMM.ITEMS)));
+            () -> new ModSpawnEggItem(ModEntityType.CROCO, 0x48D511, 0x236907, new Item.Properties().group(CSMM.ITEMS)));
 
 
     //outils

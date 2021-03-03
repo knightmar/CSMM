@@ -1,0 +1,11 @@
+{
+  "croco_ambient": {
+    "category": "entity",
+    "sounds": [
+      {
+        "name": "csmm:sound/croco_ambient",
+        "stream": true
+      }
+    ]
+  }
+}

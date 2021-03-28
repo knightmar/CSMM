@@ -1,4 +1,4 @@
-package fr.knightmar.csmm.utils;
+/*package fr.knightmar.csmm.utils;
 
 import fr.knightmar.csmm.CSMM;
 import net.minecraft.util.ResourceLocation;
@@ -27,3 +27,4 @@ public class SoundEvents {
         return Registry.register(Registry.SOUND_EVENT, key, new SoundEvent(new ResourceLocation(key)));
     }
 }
+*/

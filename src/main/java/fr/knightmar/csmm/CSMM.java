@@ -4,8 +4,10 @@ package fr.knightmar.csmm;
 import fr.knightmar.csmm.entities.CrocoEntity;
 import fr.knightmar.csmm.entities.HogEntity;
 import fr.knightmar.csmm.entities.TestEntity;
+import fr.knightmar.csmm.events.KeyBoardEvent;
 import fr.knightmar.csmm.init.*;
 /*import fr.knightmar.csmm.init.ModFeatures;*/
+import fr.knightmar.csmm.utils.KeyBoard;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -15,9 +17,11 @@ import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 @Mod(CSMM.MODID)
 public class CSMM {
@@ -39,6 +43,8 @@ public class CSMM {
 
     public CSMM() {
 
+
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 
@@ -46,9 +52,12 @@ public class CSMM {
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
-        ModEntityType.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModEntityType.ENTITY_TYPES.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
+        KeyBoard.register();
+
+        MinecraftForge.EVENT_BUS.register(new KeyBoardEvent());
 
 
 
@@ -71,6 +80,11 @@ public class CSMM {
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
+
+    }
+
+
+    public void onServerStarting(FMLServerStartingEvent event){
 
     }
 

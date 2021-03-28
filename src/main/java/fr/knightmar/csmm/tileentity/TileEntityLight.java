@@ -1,4 +1,4 @@
-package fr.knightmar.csmm.tileentity;
+/*package fr.knightmar.csmm.tileentity;
 
 import fr.knightmar.csmm.init.ModTileEntities;
 import net.minecraft.block.BlockState;
@@ -6,8 +6,9 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityLight extends TileEntity {
+    public boolean readState = false;
+    public boolean toWriteState = false;
 
-    private int isOn = 0;
 
 
 
@@ -15,32 +16,32 @@ public class TileEntityLight extends TileEntity {
         super(ModTileEntities.LIGHT_TILE_ENTITY.get());
     }
 
+
     @Override
     public void read(BlockState state, CompoundNBT nbt) {
         super.read(state, nbt);
+        this.getState(nbt.getBoolean("toWriteState"));
 
-        this.setState(nbt.getInt("state"));
     }
+
+    public void getState(boolean read_state) { this.readState = read_state; }
 
     @Override
     public CompoundNBT write(CompoundNBT compound) {
-        super.write(compound);
-
-        compound.putInt("state", this.getState());
-
-        return compound;
+        compound.putBoolean("State", setToWriteState(true));
+        return super.write(compound);
     }
 
-    public void tick() {
-
+    public boolean getToWriteState() {
+        return toWriteState;
     }
 
-
-    public int getState() {
-        return isOn;
+    public boolean setToWriteState(boolean toWriteState) {
+        this.toWriteState = true;
+        return toWriteState;
     }
 
-    public void setState(int isOn) {
-        this.isOn = isOn;
-    }
 }
+
+
+ */

@@ -7,6 +7,7 @@ import fr.knightmar.csmm.entities.TestEntity;
 import fr.knightmar.csmm.events.KeyBoardEvent;
 import fr.knightmar.csmm.init.*;
 /*import fr.knightmar.csmm.init.ModFeatures;*/
+import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.utils.KeyBoard;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
@@ -56,6 +57,7 @@ public class CSMM {
 
         MinecraftForge.EVENT_BUS.register(this);
         KeyBoard.register();
+        Network.registerNetworkPackets();
 
         MinecraftForge.EVENT_BUS.register(new KeyBoardEvent());
 

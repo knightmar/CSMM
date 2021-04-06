@@ -1,4 +1,4 @@
-sources d'inspi : ༺𝓙𝓪𝓷𝓲𝓼༻
+sources d'inspi : ༺𝓙𝓪𝓷𝓲𝓼༻ (Janis#1819)
 
 aides : discord les moddeurs français : https://discord.lesmoddeursfrancais.fr/
 

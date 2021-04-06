@@ -1,0 +1,12 @@
+{
+  "item.croco_ambient_sound": {
+    "category": "item",
+    "subtitle": "item.croco_ambient_sound.sub",
+    "sounds": [
+      {
+        "name" : "csmm:entity/croco_ambient_sound",
+        "stream" : true
+      }
+    ]
+  }
+}

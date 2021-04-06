@@ -1,4 +1,4 @@
-/*package fr.knightmar.csmm.tileentity;
+package fr.knightmar.csmm.tileentity;
 
 import fr.knightmar.csmm.init.ModTileEntities;
 import net.minecraft.block.BlockState;
@@ -44,4 +44,3 @@ public class TileEntityLight extends TileEntity {
 }
 
 
- */

@@ -17,7 +17,7 @@ public class SoundEvents {
     public static final RegistryObject<SoundEvent> CROCO_AMBIENT = SOUND_EVENT_DEFERRED_REGISTER.register("croco_ambient",
             () -> new SoundEvent(new ResourceLocation(CSMM.MODID,"sound/croco_ambient")));
 
-//sound/croco-ambient.ogg
+//sound/croco-ambient_sound.ogg
 
 
 

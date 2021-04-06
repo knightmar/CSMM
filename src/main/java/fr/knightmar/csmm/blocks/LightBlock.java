@@ -1,4 +1,4 @@
-/*package fr.knightmar.csmm.blocks;
+package fr.knightmar.csmm.blocks;
 
 import fr.knightmar.csmm.tileentity.TileEntityLight;
 import net.minecraft.block.AbstractBlock;
@@ -9,7 +9,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.StringTextComponent;
@@ -18,15 +19,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 public class LightBlock extends Block {
-    private String message;
-    private Boolean currentState = null;
-    private boolean thisState;
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    public static final BooleanProperty INVERTED = BlockStateProperties.INVERTED;
+
 
     public LightBlock() {
-        super(AbstractBlock.Properties.create(Material.REDSTONE_LIGHT).hardnessAndResistance(2.8F,2.8F).harvestTool(ToolType.PICKAXE));
+        super(AbstractBlock.Properties.create(Material.REDSTONE_LIGHT).hardnessAndResistance(2.8F, 2.8F).harvestTool(ToolType.PICKAXE));
+        this.setDefaultState(this.stateContainer.getBaseState().with(INVERTED, Boolean.valueOf(false)));
 
     }
+
     @Override
     public boolean hasTileEntity(BlockState state) {
         return true;
@@ -37,35 +38,25 @@ public class LightBlock extends Block {
         return new TileEntityLight();
     }
 
-    @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-
-        if (worldIn.getTileEntity(pos) instanceof TileEntityLight){
-            TileEntityLight te = (TileEntityLight) worldIn.getTileEntity(pos);
-
-            if (thisState) {
-                thisState = false;
-
-            }else {
-                thisState = true;
+        boolean flag = state.get(INVERTED);
+        if (player.isAllowEdit()) {
+            if (worldIn.isRemote) {
+                return ActionResultType.SUCCESS;
+            } else {
+                BlockState blockstate = state.cycleValue(INVERTED);
+                worldIn.setBlockState(pos, blockstate, 4);
+                player.sendStatusMessage(new StringTextComponent("Counter : " + flag), true);
+                return ActionResultType.CONSUME;
             }
-
-            player.sendStatusMessage(new StringTextComponent("Statut : " + thisState), true);
-
+        } else {
+            return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
         }
-
-        return ActionResultType.PASS;
 
     }
 
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (worldIn.isRemote) {
-            BlockState blockstate1 = state.func_235896_a_(POWERED);
-            return ActionResultType.SUCCESS;
-        }
-        player.sendStatusMessage(new StringTextComponent("Statut : " + POWERED), true);
-        return ActionResultType.CONSUME;
-    }
+
+
+
 }
 
-*/

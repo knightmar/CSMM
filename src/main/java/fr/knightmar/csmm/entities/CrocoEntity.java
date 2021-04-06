@@ -88,16 +88,9 @@ public class CrocoEntity extends MonsterEntity {
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.ENTITY_RAVAGER_STEP, 0.15F, 1.0F);
     }
-
-
-
-    @Nullable
-    public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-        return null;
-    }
+}
 
 
 
 
-    }
 

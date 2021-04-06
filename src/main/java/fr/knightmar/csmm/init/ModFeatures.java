@@ -20,10 +20,9 @@ public class ModFeatures {
 
     public void init(){
 
-        ORE_COPPER_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.COPPER_ORE.get().getDefaultState(), 15)).func_242728_a()
-                .func_242728_a()
-                .maxHeight(18)
-                .repeat(10)
+        ORE_COPPER_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.COPPER_ORE.get().getDefaultState(), 15))
+                .square()
+                .range(35)
                 );
    }
 

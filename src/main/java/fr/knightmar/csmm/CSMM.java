@@ -54,6 +54,7 @@ public class CSMM {
         ModBlocks.BLOCKS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
+        ModSounds.SOUNDS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
         KeyBoard.register();

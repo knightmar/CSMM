@@ -4,6 +4,7 @@ import fr.knightmar.csmm.CSMM;
 import fr.knightmar.csmm.blocks.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.GrassBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -27,7 +28,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> COPPER_ORE = createBlock("copper_ore", BlockCopperOre::new);
     public static final RegistryObject<Block> SOAP_BLOCK = createBlock("soap_block", BlockSoap::new);
     public static final RegistryObject<Block> PLATINIUM_BLOCK = createBlock("platinium_block", PlatininumBlock::new);
-    //public static final RegistryObject<Block> LIGHT_BLOCK = createBlock("light_block",LightBlock::new);
+    public static final RegistryObject<Block> LIGHT_BLOCK = createBlock("light_block",LightBlock::new);
+
+    public static final RegistryObject<Block> PLATINUIUM_GRASS = createBlock("platinium_grass", PlatininumGrass::new);
+    public static final RegistryObject<Block> PLATINUIUM_STONE = createBlock("platinium_stone", PlatininumStone::new);
 
 
 

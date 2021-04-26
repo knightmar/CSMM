@@ -41,7 +41,8 @@ public class PlaceBlockButtonPacket {
             //BlockPos posBlock = new BlockPos(p.getPosX(), p.getPosY() - 1, p.getPosZ());
             //world.setBlockState(posBlock, ModBlocks.COPPER_BLOCK.get().getDefaultState());
             p.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 100, 5));
-            p.jump();
+
+            p.setMotion(0,0.5,0);
             //p.addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 10, 1));
 
            /* if (p.getPersistentData().getLong("inertium_cooldown") <= p.getPersistentData().getLong("inertium_use")) {

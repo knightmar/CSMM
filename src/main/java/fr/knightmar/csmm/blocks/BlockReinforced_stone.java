@@ -7,6 +7,6 @@ import net.minecraft.block.material.Material;
 public class BlockReinforced_stone extends Block {
 
     public BlockReinforced_stone() {
-        super(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(-1f, -1f).setRequiresTool());
+        super(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(-1f, 3600000.0F).noDrops());
     }
 }

@@ -1,7 +1,7 @@
 package fr.knightmar.csmm.utils;
 
 
-import fr.knightmar.csmm.CSMM;
+import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.client.entity.render.CrocoRenderer;
 import fr.knightmar.csmm.client.entity.render.HogRenderer;
 import fr.knightmar.csmm.client.entity.render.TestRenderer;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-@Mod.EventBusSubscriber(modid = CSMM.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientEventBusSubscriber {
 
     @SubscribeEvent

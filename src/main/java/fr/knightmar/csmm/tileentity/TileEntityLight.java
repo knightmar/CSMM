@@ -3,25 +3,22 @@ package fr.knightmar.csmm.tileentity;
 import fr.knightmar.csmm.init.ModTileEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityLight extends TileEntity {
+public class TileEntityLight extends TileEntity implements ITickableTileEntity {
     public boolean readState = false;
     public boolean toWriteState = false;
-
-
 
 
     public TileEntityLight() {
         super(ModTileEntities.LIGHT_TILE_ENTITY.get());
     }
 
-
     @Override
     public void read(BlockState state, CompoundNBT nbt) {
         super.read(state, nbt);
         this.getState(nbt.getBoolean("toWriteState"));
-
     }
 
     public void getState(boolean read_state) { this.readState = read_state; }
@@ -41,6 +38,10 @@ public class TileEntityLight extends TileEntity {
         return toWriteState;
     }
 
+    @Override
+    public void tick() {
+
+    }
 }
 
 

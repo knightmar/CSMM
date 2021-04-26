@@ -7,10 +7,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.StringTextComponent;
@@ -24,7 +27,7 @@ public class LightBlock extends Block {
 
     public LightBlock() {
         super(AbstractBlock.Properties.create(Material.REDSTONE_LIGHT).hardnessAndResistance(2.8F, 2.8F).harvestTool(ToolType.PICKAXE));
-        this.setDefaultState(this.stateContainer.getBaseState().with(INVERTED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(INVERTED, false));
 
     }
 
@@ -38,25 +41,33 @@ public class LightBlock extends Block {
         return new TileEntityLight();
     }
 
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        boolean flag = state.get(INVERTED);
-        if (player.isAllowEdit()) {
-            if (worldIn.isRemote) {
-                return ActionResultType.SUCCESS;
-            } else {
-                BlockState blockstate = state.cycleValue(INVERTED);
-                worldIn.setBlockState(pos, blockstate, 4);
-                player.sendStatusMessage(new StringTextComponent("Counter : " + flag), true);
-                return ActionResultType.CONSUME;
-            }
-        } else {
-            return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
-        }
 
+
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(INVERTED);
     }
 
+//    @Override
+//    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+//        if (!player.world.isRemote){
+//            state.with(INVERTED, !state.get(INVERTED));
+//            player.sendStatusMessage(new StringTextComponent("state : " + state.get(INVERTED)), true);
+//            return ActionResultType.SUCCESS;
+//        }
+//        else {
+//            return ActionResultType.CONSUME;
+//        }
+//    }
+public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (worldIn.isRemote) {
 
-
+        return ActionResultType.SUCCESS;
+    } else {
+        worldIn.setBlockState(pos,state.cycleValue(INVERTED),3);
+        player.sendStatusMessage(new StringTextComponent("state : " + !state.get(INVERTED)), true);
+        return ActionResultType.CONSUME;
+    }
+}
 
 }
 

@@ -2,19 +2,18 @@ package fr.knightmar.csmm.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import fr.knightmar.csmm.CSMM;
+import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.network.packet.PlaceBlockButtonPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 public class TestGui extends Screen {
-    private final ResourceLocation GUI_TEXTURE_LOCATION = new ResourceLocation(CSMM.MODID, "textures/gui/gui_base.png");
+    private final ResourceLocation GUI_TEXTURE_LOCATION = new ResourceLocation(Main.MODID, "textures/gui/gui_base.png");
     private final int xSize = 256;
     private final int ySize = 202;
     private final World world;
@@ -37,8 +36,9 @@ public class TestGui extends Screen {
         this.addButton(new Button(guiLeft  + (xSize/2) - 70, guiTop + (ySize/2) - 10, 150, 20, new TranslationTextComponent("csmm.guispells.button.navis.title"), button -> {
             toOverlay = "Button press";
             System.out.println(toOverlay);
-            Network.CHANNEL.sendToServer(new PlaceBlockButtonPacket());
             this.closeScreen();
+            Network.CHANNEL.sendToServer(new PlaceBlockButtonPacket());
+
         }));
 
     }

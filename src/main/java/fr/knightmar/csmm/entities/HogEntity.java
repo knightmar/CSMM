@@ -1,9 +1,10 @@
 package fr.knightmar.csmm.entities;
 
 
-import fr.knightmar.csmm.init.ModEntityType;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
+import net.minecraft.entity.AgeableEntity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -21,6 +22,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class HogEntity extends AnimalEntity {
 
@@ -41,10 +43,6 @@ public class HogEntity extends AnimalEntity {
     }
 
 
-    public AgeableEntity createChild(AgeableEntity ageable) {
-        return ModEntityType.HOG.get().create(this.world);
-    }
-
     @Override
     protected void registerGoals() {
         super.registerGoals();
@@ -60,6 +58,7 @@ public class HogEntity extends AnimalEntity {
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     protected int getExperiencePoints(PlayerEntity player) {
         return 1 + this.world.rand.nextInt(4);
@@ -71,11 +70,13 @@ public class HogEntity extends AnimalEntity {
     @Override
     protected SoundEvent getDeathSound() { return SoundEvents.ENTITY_PIG_DEATH; }
 
+    @ParametersAreNonnullByDefault
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         return SoundEvents.ENTITY_PIG_HURT;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.ENTITY_PIG_STEP, 0.15F, 1.0F);
@@ -88,6 +89,7 @@ public class HogEntity extends AnimalEntity {
     }
 
 
+    @ParametersAreNonnullByDefault
     @Nullable
     @Override
     public AgeableEntity createChild(ServerWorld world, AgeableEntity mate) {

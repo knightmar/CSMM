@@ -17,6 +17,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 
 public class BlockTemp extends Block {
 
@@ -37,6 +39,7 @@ public class BlockTemp extends Block {
         return new TileEntityTemp();
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 
@@ -48,6 +51,7 @@ public class BlockTemp extends Block {
 
 
             TileEntityTemp te = (TileEntityTemp) worldIn.getTileEntity(pos);
+            assert te != null;
             player.sendStatusMessage(new StringTextComponent("Counter : " + te.getCounter()), true);
             return ActionResultType.SUCCESS;
         }

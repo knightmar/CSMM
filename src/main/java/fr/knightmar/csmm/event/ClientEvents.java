@@ -21,8 +21,8 @@ public class ClientEvents {
         }
 
     }
-    @SubscribeEvent
-    public static void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
-        Minecraft.getInstance().fontRenderer.drawTextWithShadow(event.getMatrixStack(),new TranslationTextComponent("overlay.test"),0,0,0x000000);
-    }
+//    @SubscribeEvent
+//    public static void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
+//        Minecraft.getInstance().fontRenderer.drawTextWithShadow(event.getMatrixStack(),new TranslationTextComponent("overlay.test"),0,0,0x000000);
+//    }
 }

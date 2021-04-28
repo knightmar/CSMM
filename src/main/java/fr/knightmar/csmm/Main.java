@@ -1,13 +1,18 @@
 package fr.knightmar.csmm;
 
 
+import fr.knightmar.csmm.entities.CrocoEntity;
+import fr.knightmar.csmm.entities.HogEntity;
+import fr.knightmar.csmm.entities.TestEntity;
 import fr.knightmar.csmm.init.*;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.utils.KeyBoard;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -42,7 +47,10 @@ public class Main {
 
 
         bus.addListener(this::setup);
+        bus.addListener(this::onEntityAttributeCreation);
         bus.addListener(this::clientSetup);
+
+
 
         ModSounds.SOUNDS.register(bus);
         ModItems.ITEMS.register(bus);
@@ -70,6 +78,12 @@ public class Main {
         features.init();
         MinecraftForge.EVENT_BUS.register(features);
 
+    }
+
+    public void onEntityAttributeCreation(EntityAttributeCreationEvent event){
+        event.put(ModEntityType.HOG.get(), HogEntity.setCustomAttributes().create());
+        event.put(ModEntityType.CROCO.get(), CrocoEntity.setCustomAttributes().create());
+        event.put(ModEntityType.TEST.get(), TestEntity.setCustomAttributes().create());
     }
 
     private void clientSetup(final FMLClientSetupEvent event)

@@ -23,6 +23,7 @@ public class ModFeatures {
         ORE_COPPER_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.COPPER_ORE.get().getDefaultState(), 15))
                 .square()
                 .range(50)
+
                 );
    }
 

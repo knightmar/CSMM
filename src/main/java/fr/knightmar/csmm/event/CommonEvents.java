@@ -12,10 +12,5 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class CommonEvents {
 
-    @SubscribeEvent
-    public static void onEntityAttributeCreation(EntityAttributeCreationEvent event){
-    event.put(ModEntityType.HOG.get(), HogEntity.setCustomAttributes().create());
-    event.put(ModEntityType.CROCO.get(), CrocoEntity.setCustomAttributes().create());
-    event.put(ModEntityType.TEST.get(), TestEntity.setCustomAttributes().create());
-    }
+
 }

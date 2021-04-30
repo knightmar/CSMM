@@ -38,8 +38,8 @@ public class ModItems {
     //armure & armes
     public static final RegistryObject<SwordItem> PLATINUM_SWORD = ITEMS.register("platinum_sword",()-> new SwordItem(CustomItemTiers.PLATINUM, 5,-2.4f, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
 
-    public static final RegistryObject<ArmorItem> PLATINUM_CHESTPLATE = ITEMS.register("platinum_chestplate",()->new ArmorItem(ArmorMaterial.PLATINUM, EquipmentSlotType.CHEST, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
     public static final RegistryObject<ArmorItem> PLATINUM_HELMET = ITEMS.register("platinum_helmet",()->new ArmorItem(ArmorMaterial.PLATINUM, EquipmentSlotType.HEAD, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
+    public static final RegistryObject<ArmorItem> PLATINUM_CHESTPLATE = ITEMS.register("platinum_chestplate",()->new ArmorItem(ArmorMaterial.PLATINUM, EquipmentSlotType.CHEST, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
     public static final RegistryObject<ArmorItem> PLATINUM_LEGGINGS = ITEMS.register("platinum_leggings",()->new ArmorItem(ArmorMaterial.PLATINUM, EquipmentSlotType.LEGS, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
     public static final RegistryObject<ArmorItem> PLATINUM_BOOTS = ITEMS.register("platinum_boots",()->new ArmorItem(ArmorMaterial.PLATINUM, EquipmentSlotType.FEET, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
 

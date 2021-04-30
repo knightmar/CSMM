@@ -2,7 +2,10 @@ package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.blocks.*;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -27,6 +30,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> PLATINIUM_GRASS = createBlock("platinium_grass", PlatininumGrass::new);
     public static final RegistryObject<Block> PLATINIUM_STONE = createBlock("platinium_stone", PlatininumStone::new);
+
+    //public static final RegistryObject<FlowingFluidBlock> PLATINUM_FLOWING = new FlowingFluidBlock(() -> ModFluids.PLATINIUM_WATER, AbstractBlock.Properties.create(Material.WATER).doesNotBlockMovement().noDrops());
     
 
 

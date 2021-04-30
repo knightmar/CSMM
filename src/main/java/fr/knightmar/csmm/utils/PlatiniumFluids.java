@@ -51,17 +51,17 @@
 //
 //    @Override
 //    protected boolean canDisplace(FluidState fluidState, IBlockReader blockReader, BlockPos pos, Fluid fluid, Direction direction) {
-//        return false;
+//        return direction == Direction.DOWN && !fluid.isIn(ModFluids.Tags.PLATINUM_WATER);
 //    }
 //
 //    @Override
 //    public int getTickRate(IWorldReader p_205569_1_) {
-//        return 0;
+//        return 25;
 //    }
 //
 //    @Override
 //    protected float getExplosionResistance() {
-//        return 0;
+//        return 100.0f;
 //    }
 //
 //    @Override

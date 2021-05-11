@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "csmm:block/mandragore_crop0" },
+    "age=1": { "model": "csmm:block/mandragore_crop1" },
+    "age=2": { "model": "csmm:block/mandragore_crop2" },
+    "age=3": { "model": "csmm:block/mandragore_crop3" },
+    "age=4": { "model": "csmm:block/mandragore_crop4" },
+    "age=5": { "model": "csmm:block/mandragore_crop5" },
+    "age=6": { "model": "csmm:block/mandragore_crop6" },
+    "age=7": { "model": "csmm:block/mandragore_crop7" }
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "item.csmm.copper_ingot": "Lingot de cuivre",
-  "item.csmm.copper_stick": "Bâton de cuivre",
-  "block.csmm.copper_block": "Bloc de cuivre",
-  "item.csmm.copper_sword": "Épée en cuivre",
-  "item.csmm.copper_pickaxe": "Pioche en cuivre",
-  "item.csmm.copper_shovel": "Pelle en cuivre",
-  "item.csmm.copper_axe": "Hache en cuivre",
+  "item.csmm.bronze_ingot": "Lingot de bronze",
+  "item.csmm.bronze_stick": "Bâton de bronze",
+  "block.csmm.bronze_block": "Bloc de bronze",
+  "item.csmm.bronze_sword": "Épée en bronze",
+  "item.csmm.bronze_pickaxe": "Pioche en bronze",
+  "item.csmm.bronze_shovel": "Pelle en bronze",
+  "item.csmm.bronze_axe": "Hache en bronze",
   "block.csmm.temp_block": "Bloc compteur",
   "itemGroup.BLOCKS": "Blocs",
   "itemGroup.ITEMS": "Items",
@@ -17,5 +17,7 @@
   "item.csmm.platinum_leggings": "Pantalon de Platinum",
   "item.csmm.platinum_boots": "Bottes en Platinum",
   "entity.csmm.hog": "Sanglier",
-  "entity.csmm.croco:": "Crocodile"
+  "entity.csmm.croco:": "Crocodile",
+  "block.csmm.mandragore_crop": "Mandragore Seeds"
+
 }

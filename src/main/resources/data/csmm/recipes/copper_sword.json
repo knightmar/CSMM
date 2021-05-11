@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
 
+
   "pattern": [
-    " C ",
-    " C ",
-    " B "
+    " X ",
+    " X ",
+    " G "
   ],
   "key": {
-    "C": {
-      "item": "csmm:copper_ingot"
+    "X": {
+      "item": "csmm:bronze_ingot"
     },
-    "key": {
-      "B": {
-        "item": "minecraft:stick"
-      }
+    "G": {
+      "item": "minecraft:stick"
+    }
   },
   "result": {
-    "item": "csmm:copper_sword",
+    "item": "csmm:bronze_sword",
     "count": 1
   }
 }

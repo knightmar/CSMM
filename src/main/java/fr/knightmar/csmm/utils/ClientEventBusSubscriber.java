@@ -6,7 +6,6 @@ import fr.knightmar.csmm.client.entity.render.CrocoRenderer;
 import fr.knightmar.csmm.client.entity.render.HogRenderer;
 import fr.knightmar.csmm.client.entity.render.TestRenderer;
 import fr.knightmar.csmm.init.ModEntityType;
-import fr.knightmar.csmm.item.ModSpawnEggItem;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.RegistryEvent;

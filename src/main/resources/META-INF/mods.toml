@@ -51,6 +51,6 @@ https://www.youtube.com/channel/UCdjw-3EI4xgOe341MJEiYmg
 [[dependencies.examplemod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3]"
+    versionRange="[1.16.5]"
     ordering="NONE"
     side="BOTH"

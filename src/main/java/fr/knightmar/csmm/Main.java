@@ -7,6 +7,8 @@ import fr.knightmar.csmm.entities.TestEntity;
 import fr.knightmar.csmm.init.*;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.utils.KeyBoard;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,14 +31,14 @@ public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "csmm";
 
-    public static final ItemGroup BLOCkS = new ItemGroup("BLOCKS") {
+    public static final ItemGroup BLOCKS = new ItemGroup("BLOCKS") {
         @Override
         public ItemStack createIcon() { return new ItemStack(ModBlocks.TEMP_BLOCK.get()); }
     };
 
     public static final ItemGroup ITEMS = new ItemGroup("ITEMS") {
         @Override
-        public ItemStack createIcon() { return new ItemStack(ModItems.COPPER_INGOT.get()); }
+        public ItemStack createIcon() { return new ItemStack(ModItems.BRONZE_INGOT.get()); }
     };
 
 
@@ -57,6 +59,7 @@ public class Main {
         ModBlocks.BLOCKS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
+        BiomeInit.BIOMES.register(bus);
 
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -89,6 +92,8 @@ public class Main {
     private void clientSetup(final FMLClientSetupEvent event)
     {
         KeyBoard.register();
+        RenderTypeLookup.setRenderLayer(ModBlocks.MANDRAGORE_CROP.get(), RenderType.getCutout());
+
     }
 
 

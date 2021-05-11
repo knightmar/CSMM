@@ -1,6 +1,5 @@
 package fr.knightmar.csmm.init;
 
-import fr.knightmar.csmm.blocks.BlockCopperOre;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -20,29 +19,29 @@ public class ModFeatures {
 
     public void init(){
 
-        ORE_COPPER_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.COPPER_ORE.get().getDefaultState(), 15))
+        ORE_COPPER_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.BRONZE_ORE.get().getDefaultState(), 15))
                 .square()
                 .range(50)
 
-                );
-   }
+        );
+    }
 
-   public <FC extends IFeatureConfig> ConfiguredFeature<FC,?> register(String name,ConfiguredFeature<FC,?>feature)
-   {
-      return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, name, feature);
+    public <FC extends IFeatureConfig> ConfiguredFeature<FC,?> register(String name,ConfiguredFeature<FC,?>feature)
+    {
+        return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, name, feature);
 
-   }
+    }
 
-   @SubscribeEvent
+    @SubscribeEvent
     public void biomeLoading(BiomeLoadingEvent e){
-       BiomeGenerationSettingsBuilder generation = e.getGeneration();
+        BiomeGenerationSettingsBuilder generation = e.getGeneration();
 
-       //mettre biome souhaité ici
+        //mettre biome souhaité ici
 
-       if (e.getCategory() != Biome.Category.NETHER){
-           generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_COPPER_FEARTURE);
-       }
-   }
+        if (e.getCategory() != Biome.Category.NETHER){
+            generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_COPPER_FEARTURE);
+        }
+    }
 
 
 

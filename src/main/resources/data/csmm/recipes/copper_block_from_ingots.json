@@ -8,11 +8,11 @@
   ],
   "key": {
     "X": {
-      "item": "csmm:copper_ingot"
+      "item": "csmm:bronze_ingot"
     }
   },
   "result": {
-    "item": "csmm:copper_block",
+    "item": "csmm:bronze_block",
     "count": 1
   }
 }

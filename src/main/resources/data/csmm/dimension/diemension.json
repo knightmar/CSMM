@@ -66,6 +66,16 @@
             "weirdness": 1,
             "offset": 0
           }
+        },
+        {
+          "biome": "csmm:platinum_biome",
+          "parameters": {
+            "altitude": 1,
+            "temperature": 0,
+            "humidity": 0,
+            "weirdness": 1,
+            "offset": 0
+          }
         }
       ]
     },

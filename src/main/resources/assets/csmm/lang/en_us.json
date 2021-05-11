@@ -1,12 +1,21 @@
 {
-  "item.csmm.copper_ingot": "Copper Ingot",
-  "item.csmm.copper_stick": "Copper Stick",
-  "block.csmm.copper_block": "Copper Block",
-  "item.csmm.copper_sword": "Copper Sword",
-  "item.csmm.copper_pickaxe": "Copper Pickaxe",
-  "item.csmm.copper_shovel": "Copper Shovel",
-  "item.csmm.copper_axe": "Copper Axe",
-  "block.csmm.temp_block": "Counter Block",
-  "block.csmm.reinforced_stone": "Reinforced Block"
-
+  "item.csmm.bronze_ingot": "Bronze ingot",
+  "item.csmm.bronze_stick": "Bronze stick",
+  "block.csmm.bronze_block": "Bronze block",
+  "item.csmm.bronze_sword": "Bronze sword",
+  "item.csmm.bronze_pickaxe": "Bronze pickaxe",
+  "item.csmm.bronze_shovel": "Bronze shovel",
+  "item.csmm.bronze_axe": "Bronze axe",
+  "block.csmm.temp_block": "Counter block",
+  "itemGroup.BLOCKS": "Blocks",
+  "itemGroup.ITEMS": "Items",
+  "block.csmm.reinforced_block": "Reinforced block",
+  "item.csmm.platinum_ingot": "Platinum ingot",
+  "item.csmm.platinum_sword": "Platinum Sword",
+  "item.csmm.platinum_chestplate": "Platinum chestplate",
+  "item.csmm.platinum_helmet": "Platinum Helmet",
+  "item.csmm.platinum_leggings": "Platinum leggings",
+  "item.csmm.platinum_boots": "Platinum boots",
+  "entity.csmm.hog": "Hog",
+  "entity.csmm.croco:": "Crocodile"
 }

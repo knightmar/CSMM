@@ -5,6 +5,8 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.UnderwaterParticle;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
@@ -47,17 +49,7 @@ public class LightBlock extends Block {
         builder.add(INVERTED);
     }
 
-//    @Override
-//    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-//        if (!player.world.isRemote){
-//            state.with(INVERTED, !state.get(INVERTED));
-//            player.sendStatusMessage(new StringTextComponent("state : " + state.get(INVERTED)), true);
-//            return ActionResultType.SUCCESS;
-//        }
-//        else {
-//            return ActionResultType.CONSUME;
-//        }
-//    }
+
 public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
     if (worldIn.isRemote) {
 
@@ -66,8 +58,13 @@ public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockP
         worldIn.setBlockState(pos,state.cycleValue(INVERTED),3);
         player.sendStatusMessage(new StringTextComponent("state : " + !state.get(INVERTED)), true);
         return ActionResultType.CONSUME;
-    }
-}
+//        if (state.get(INVERTED)){
+//            //worldIn.addParticle();
+//        }
 
+    }
+
+
+}
 }
 

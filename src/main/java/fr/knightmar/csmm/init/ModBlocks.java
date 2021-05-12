@@ -5,8 +5,10 @@ import fr.knightmar.csmm.blocks.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,6 +31,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> PLATINIUM_GRASS = createBlock("platinium_grass", PlatininumGrass::new);
     public static final RegistryObject<Block> PLATINIUM_STONE = createBlock("platinium_stone", PlatininumStone::new);
+    public static final RegistryObject<Block> PLATINUM_ORE = createBlock("platinum_ore", ()-> new Block(AbstractBlock.Properties.create(Material.IRON).harvestTool(ToolType.PICKAXE).setRequiresTool().harvestLevel(3)));
 
     //public static final RegistryObject<FlowingFluidBlock> PLATINUM_FLOWING = new FlowingFluidBlock(() -> ModFluids.PLATINIUM_WATER, AbstractBlock.Properties.create(Material.WATER).doesNotBlockMovement().noDrops());
 

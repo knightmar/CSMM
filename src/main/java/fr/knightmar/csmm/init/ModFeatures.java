@@ -15,13 +15,20 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class ModFeatures {
 
 
-    private ConfiguredFeature<?,?> ORE_COPPER_FEARTURE;
+    private ConfiguredFeature<?,?> ORE_BRONZE_FEARTURE;
+    private ConfiguredFeature<?,?> ORE_PLATINUM_FEARTURE;
+
 
     public void init(){
 
-        ORE_COPPER_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.BRONZE_ORE.get().getDefaultState(), 15))
+        ORE_BRONZE_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.BRONZE_ORE.get().getDefaultState(), 15))
                 .square()
                 .range(50)
+                .chance(100)
+
+        );
+        ORE_PLATINUM_FEARTURE = register("ore_platinum", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.PLATINIUM_BLOCK.get().getDefaultState(), 15)).square().range(50).chance(100)
+
 
         );
     }
@@ -33,18 +40,19 @@ public class ModFeatures {
     }
 
     @SubscribeEvent
-    public void biomeLoading(BiomeLoadingEvent e){
+    public void biomeLoading(BiomeLoadingEvent e) {
         BiomeGenerationSettingsBuilder generation = e.getGeneration();
 
         //mettre biome souhaité ici
 
-        if (e.getCategory() != Biome.Category.NETHER){
-            generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_COPPER_FEARTURE);
+        if (e.getCategory() != Biome.Category.NETHER) {
+            generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_BRONZE_FEARTURE);
+
         }
+        if (e.getName().equals("platinum_biome")) {
+            generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_PLATINUM_FEARTURE);
+        }
+
+
     }
-
-
-
-
-
 }

@@ -45,11 +45,6 @@ public class BlockTemp extends Block {
 
         if (worldIn.getTileEntity(pos) instanceof TileEntityTemp){
 
-
-
-
-
-
             TileEntityTemp te = (TileEntityTemp) worldIn.getTileEntity(pos);
             assert te != null;
             player.sendStatusMessage(new StringTextComponent("Counter : " + te.getCounter()), true);

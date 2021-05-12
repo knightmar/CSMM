@@ -15,7 +15,7 @@ public class BiomeInit {
 
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, Main.MODID);
 
-    public static final RegistryObject<Biome> PLATINUM_BIOME = BIOMES.register("platinum_biome", ()-> makeTestBiome(0.2F, 0.2F, 0.3F));
+    public static final RegistryObject<Biome> PLATINUM_BIOME = BIOMES.register("platinum_biome", ()-> makeTestBiome(1F, 1F, 0.3F));
 
     public static Biome makeTestBiome(float depth, float scale, float temperature) {
         MobSpawnInfo.Builder mobspawninfo$builder = new MobSpawnInfo.Builder();
@@ -31,7 +31,7 @@ public class BiomeInit {
         DefaultBiomeFeatures.withLavaAndWaterLakes(biomegenerationsettings$builder);
         DefaultBiomeFeatures.withMonsterRoom(biomegenerationsettings$builder);
 
-        return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS).depth(depth).scale(scale).temperature(temperature).downfall(1F).setEffects((new BiomeAmbience.Builder()).setWaterColor(12386452).setWaterFogColor(65390).setFogColor(25343).withSkyColor(12255487/*getSkyColorWithTemperatureModifier(temperature)*/).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(mobspawninfo$builder.build()).withGenerationSettings(biomegenerationsettings$builder.build()).build();
+        return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS).depth(depth).scale(scale).temperature(temperature).downfall(1F).setEffects((new BiomeAmbience.Builder()).setWaterColor(12386452).setWaterFogColor(12386452).setFogColor(25343).withSkyColor(12255487/*getSkyColorWithTemperatureModifier(temperature)*/).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(mobspawninfo$builder.build()).withGenerationSettings(biomegenerationsettings$builder.build()).build();
     }
 
 

@@ -11,6 +11,10 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -60,6 +64,8 @@ public class Main {
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
         BiomeInit.BIOMES.register(bus);
+        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(Main.MODID, "platinum_biome")), 5));
+
 
 
         MinecraftForge.EVENT_BUS.register(this);

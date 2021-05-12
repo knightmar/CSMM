@@ -46,6 +46,8 @@ public class CrocoEntity extends MonsterEntity {
                 .createMutableAttribute(Attributes.ATTACK_SPEED, 1)
                 .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0);
 
+
+
     }
 
 
@@ -89,7 +91,6 @@ public class CrocoEntity extends MonsterEntity {
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.ENTITY_RAVAGER_STEP, 0.15F, 1.0F);
     }
-
 }
 
 

@@ -1,0 +1,23 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+
+
+  "pattern": [
+    " X ",
+    " G ",
+    " G "
+  ],
+  "key": {
+    "X": {
+      "item": "csmm:bronze_ingot"
+    },
+    "G": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "csmm:bronze_shovel",
+    "count": 1
+  }
+}

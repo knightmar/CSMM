@@ -4,6 +4,8 @@ package fr.knightmar.csmm;
 import fr.knightmar.csmm.entities.CrocoEntity;
 import fr.knightmar.csmm.entities.HogEntity;
 import fr.knightmar.csmm.entities.TestEntity;
+import fr.knightmar.csmm.event.ArmorEvent;
+import fr.knightmar.csmm.event.CommonEvents;
 import fr.knightmar.csmm.init.*;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.utils.KeyBoard;
@@ -86,6 +88,7 @@ public class Main {
         ModFeatures features = new ModFeatures();
         features.init();
         MinecraftForge.EVENT_BUS.register(features);
+        MinecraftForge.EVENT_BUS.register(new ArmorEvent());
 
     }
 

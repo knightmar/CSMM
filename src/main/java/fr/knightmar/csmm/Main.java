@@ -101,7 +101,7 @@ public class Main {
     private void clientSetup(final FMLClientSetupEvent event)
     {
         KeyBoard.register();
-        RenderTypeLookup.setRenderLayer(ModBlocks.MANDRAGORE_CROP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.POLLENIUM_CROPS.get(), RenderType.getCutout());
 
     }
 

@@ -2,6 +2,7 @@ package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.blocks.*;
+import fr.knightmar.csmm.others.PolleniumCrops;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -35,7 +36,8 @@ public class ModBlocks {
 
     //public static final RegistryObject<FlowingFluidBlock> PLATINUM_FLOWING = new FlowingFluidBlock(() -> ModFluids.PLATINIUM_WATER, AbstractBlock.Properties.create(Material.WATER).doesNotBlockMovement().noDrops());
 
-    public static final RegistryObject<Block> MANDRAGORE_CROP = BLOCKS.register("mandragore_crop", () -> new MandragoreCrop(AbstractBlock.Properties.from(Blocks.WHEAT)));
+    public static final RegistryObject<Block> POLLENIUM_CROPS =
+            BLOCKS.register("pollenium_crop", () -> new PolleniumCrops(AbstractBlock.Properties.from(Blocks.WHEAT)));
 
 
 

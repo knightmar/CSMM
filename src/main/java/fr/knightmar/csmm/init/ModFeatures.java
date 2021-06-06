@@ -24,6 +24,7 @@ public class ModFeatures {
         ORE_BRONZE_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.BRONZE_ORE.get().getDefaultState(), 15))
                 .square()
                 .range(50)
+                .count(20)
                 .chance(100)
 
         );

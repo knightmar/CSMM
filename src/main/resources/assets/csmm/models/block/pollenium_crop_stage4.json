@@ -1,6 +1,6 @@
 {
   "parent": "block/crop",
   "textures": {
-    "crop": "csmm:block/mandragore_crop_stage0"
+    "crop": "csmm:block/pollenium_crop_stage4"
   }
 }

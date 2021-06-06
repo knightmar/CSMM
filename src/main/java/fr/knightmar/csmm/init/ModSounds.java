@@ -11,5 +11,5 @@ public class ModSounds {
 
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Main.MODID);
 
-    public static final RegistryObject<SoundEvent> CROCO_AMBIENT_SOUND = SOUNDS.register("croco_ambient_sound",()-> new SoundEvent(new ResourceLocation(Main.MODID, "item.croco_ambient_sound")));
+    public static final RegistryObject<SoundEvent> CROCO_AMBIENT_SOUND = SOUNDS.register("croco_ambient_sound", () -> new SoundEvent(new ResourceLocation(Main.MODID, "entity.croco_ambient_sound")));
 }

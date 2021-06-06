@@ -1,11 +1,11 @@
 {
-  "item.croco_ambient_sound": {
-    "category": "item",
-    "subtitle": "item.croco_ambient_sound.sub",
+  "entity.croco_ambient_sound": {
+    "category" : "entity",
+    "subtitle": "entity.croco_ambient_sound.sub",
     "sounds": [
       {
-        "name" : "csmm:entity/croco_ambient_sound",
-        "stream" : true
+        "name": "csmm:entity/croco_ambient_sound",
+        "stream": true
       }
     ]
   }

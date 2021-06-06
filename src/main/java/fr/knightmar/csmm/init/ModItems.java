@@ -5,6 +5,7 @@ import fr.knightmar.csmm.items.BronzeHammer;
 import fr.knightmar.csmm.utils.ArmorMaterial;
 import fr.knightmar.csmm.utils.ModSpawnEggItem;
 import fr.knightmar.csmm.utils.CustomItemTiers;
+import net.minecraft.block.material.Material;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -12,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
+    public static String backpackIsUsed;
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MODID);
 
@@ -52,8 +54,12 @@ public class ModItems {
     public static final RegistryObject<ArmorItem> BRONZE_LEGGINGS = ITEMS.register("bronze_leggings",()->new ArmorItem(ArmorMaterial.BRONZE, EquipmentSlotType.LEGS, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
     public static final RegistryObject<ArmorItem> BRONZE_BOOTS = ITEMS.register("bronze_boots",()->new ArmorItem(ArmorMaterial.BRONZE, EquipmentSlotType.FEET, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
 
-    public static final RegistryObject<Item> MANDRAGORE_SEEDS = ITEMS.register("mandragore_seeds", () -> new BlockItem(ModBlocks.MANDRAGORE_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> POLLENIUM_SEEDS =
+            ITEMS.register("pollenium_seeds", () -> new BlockItem(ModBlocks.POLLENIUM_CROPS.get(), new Item.Properties().group(Main.ITEMS).isImmuneToFire()));
+
     public static final RegistryObject<Item> POLLENIUM_SHARD = ITEMS.register("pollenium_shard",()-> new Item(new Item.Properties().group(Main.ITEMS)));
+
+    public static final RegistryObject<ArmorItem> BACKPACK = ITEMS.register("backpack",()->new ArmorItem(net.minecraft.item.ArmorMaterial.CHAIN, EquipmentSlotType.CHEST, new Item.Properties().maxStackSize(1).group(Main.ITEMS)));
 
     public static final RegistryObject<Item> BRONZE_HAMMER = ITEMS.register("bronze_hammer", () -> new BronzeHammer(new Item.Properties().maxStackSize(1).group(Main.ITEMS).isImmuneToFire()));
 }

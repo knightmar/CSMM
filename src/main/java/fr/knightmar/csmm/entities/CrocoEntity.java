@@ -1,15 +1,14 @@
 package fr.knightmar.csmm.entities;
 
 
+import fr.knightmar.csmm.init.ModSounds;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.SheepEntity;
@@ -21,13 +20,10 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-
-import javax.annotation.Nullable;
 
 public class CrocoEntity extends MonsterEntity {
 
-    private static final double speed = 0.25D ;
+    private static final double speed = 0.25D;
     private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.COOKED_MUTTON, Items.MUTTON, Items.COOKED_CHICKEN, Items.COOKED_BEEF, Items.BEEF);
 
 
@@ -47,10 +43,7 @@ public class CrocoEntity extends MonsterEntity {
                 .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0);
 
 
-
     }
-
-
 
 
     @Override
@@ -59,12 +52,12 @@ public class CrocoEntity extends MonsterEntity {
         this.targetSelector.addGoal(0, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(1, new SwimGoal(this));
         this.goalSelector.addGoal(2, new PanicGoal(this, 1.25D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this,1,true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, SheepEntity.class,true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, CowEntity.class,true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, ChickenEntity.class,true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class,true));
-        this.goalSelector.addGoal(7, new RandomWalkingGoal(this , speed));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, SheepEntity.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, CowEntity.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, ChickenEntity.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.addGoal(7, new RandomWalkingGoal(this, speed));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(9, new LookRandomlyGoal(this));
@@ -77,10 +70,14 @@ public class CrocoEntity extends MonsterEntity {
     }
 
     @Override
-    protected SoundEvent getAmbientSound() { return SoundEvents.ENTITY_RAVAGER_AMBIENT; }
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.CROCO_AMBIENT_SOUND.get();
+    }
 
     @Override
-    protected SoundEvent getDeathSound() { return SoundEvents.ENTITY_RAVAGER_DEATH; }
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_RAVAGER_DEATH;
+    }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {

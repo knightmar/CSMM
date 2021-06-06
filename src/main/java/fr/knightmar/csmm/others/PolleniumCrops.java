@@ -1,7 +1,6 @@
-package fr.knightmar.csmm.blocks;
+package fr.knightmar.csmm.others;
 
 import fr.knightmar.csmm.init.ModItems;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
@@ -11,8 +10,8 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
-public class MandragoreCrop extends CropsBlock
-{
+public class PolleniumCrops extends CropsBlock {
+
     private static final VoxelShape[] SHAPES = new VoxelShape[]
             {
                     Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
@@ -25,20 +24,19 @@ public class MandragoreCrop extends CropsBlock
                     Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
             };
 
-    public MandragoreCrop(Properties builder)
-    {
+
+    public PolleniumCrops(Properties builder) {
         super(builder);
     }
 
     @Override
-    protected IItemProvider getSeedsItem()
-    {
-        return ModItems.MANDRAGORE_SEEDS.get();
+    protected IItemProvider getSeedsItem() {
+        return ModItems.POLLENIUM_SEEDS.get();
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context)
-    {
+    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
         return SHAPES[state.get(this.getAgeProperty())];
     }
+
 }

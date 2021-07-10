@@ -19,20 +19,23 @@ import java.util.function.Supplier;
 public class ModBlocks {
 
 
-
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Main.MODID);
 
     public static final RegistryObject<Block> BRONZE_BLOCK = createBlock("bronze_block", BlockBronze::new);
-    public static final RegistryObject<Block> TEMP_BLOCK = createBlock("temp_block", BlockTemp::new );
-    public static final RegistryObject<Block> REINFORCED_STONE = createBlock("reinforced_stone" , BlockReinforcedStone::new);
+    public static final RegistryObject<Block> TEMP_BLOCK = createBlock("temp_block", BlockTemp::new);
+    public static final RegistryObject<Block> REINFORCED_STONE = createBlock("reinforced_stone", BlockReinforcedStone::new);
     public static final RegistryObject<Block> BRONZE_ORE = createBlock("bronze_ore", BlockBronzeOre::new);
     public static final RegistryObject<Block> SOAP_BLOCK = createBlock("soap_block", BlockSoap::new);
     public static final RegistryObject<Block> PLATINIUM_BLOCK = createBlock("platinium_block", PlatininumBlock::new);
-    public static final RegistryObject<Block> LIGHT_BLOCK = createBlock("light_block",LightBlock::new);
+    public static final RegistryObject<Block> LIGHT_BLOCK = createBlock("light_block", LightBlock::new);
 
     public static final RegistryObject<Block> PLATINIUM_GRASS = createBlock("platinium_grass", PlatininumGrass::new);
     public static final RegistryObject<Block> PLATINIUM_STONE = createBlock("platinium_stone", PlatininumStone::new);
-    public static final RegistryObject<Block> PLATINUM_ORE = createBlock("platinum_ore", ()-> new Block(AbstractBlock.Properties.create(Material.IRON).harvestTool(ToolType.PICKAXE).setRequiresTool().harvestLevel(3)));
+
+
+    public static final RegistryObject<Block> PLATINUM_ORE = createBlock("platinum_ore", () -> new Block(AbstractBlock.Properties.create(Material.IRON).harvestTool(ToolType.PICKAXE).setRequiresTool().harvestLevel(3)));
+
+    public static final RegistryObject<Block> HOME_BLOCK = createBlock("home_block", HomeBlock::new);
 
     //public static final RegistryObject<FlowingFluidBlock> PLATINUM_FLOWING = new FlowingFluidBlock(() -> ModFluids.PLATINIUM_WATER, AbstractBlock.Properties.create(Material.WATER).doesNotBlockMovement().noDrops());
 
@@ -40,11 +43,9 @@ public class ModBlocks {
             BLOCKS.register("pollenium_crop", () -> new PolleniumCrops(AbstractBlock.Properties.from(Blocks.WHEAT)));
 
 
-
-    public static RegistryObject<Block> createBlock(String name, Supplier<? extends Block> supplier)
-    {
+    public static RegistryObject<Block> createBlock(String name, Supplier<? extends Block> supplier) {
         RegistryObject<Block> block = BLOCKS.register(name, supplier);
-        ModItems.ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties().group(Main.BLOCKS)));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().group(Main.BLOCKS)));
         return block;
     }
 }

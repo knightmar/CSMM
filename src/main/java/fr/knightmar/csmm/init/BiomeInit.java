@@ -14,7 +14,7 @@ public class BiomeInit {
 
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, Main.MODID);
 
-    public static final RegistryObject<Biome> PLATINUM_BIOME = BIOMES.register("platinum_biome", ()-> makeTestBiome(1F, 1F, 0.3F));
+    public static final RegistryObject<Biome> PLATINUM_BIOME = BIOMES.register("platinum_biome", () -> makeTestBiome(1F, 1F, 0.3F));
 
     public static Biome makeTestBiome(float depth, float scale, float temperature) {
         MobSpawnInfo.Builder mobspawninfo$builder = new MobSpawnInfo.Builder();
@@ -39,8 +39,6 @@ public class BiomeInit {
         lvt_1_1_ = MathHelper.clamp(lvt_1_1_, -1.0F, 1.0F);
         return MathHelper.hsvToRGB(0.62222224F - lvt_1_1_ * 0.05F, 0.5F + lvt_1_1_ * 0.1F, 1.0F);
     }
-
-
 
 
 }

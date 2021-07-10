@@ -48,7 +48,7 @@ public class HogModel<H extends HogEntity> extends EntityModel<H> {
     }
 
     @Override
-    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         head.render(matrixStack, buffer, packedLight, packedOverlay);
         body.render(matrixStack, buffer, packedLight, packedOverlay);
         legFrontRight.render(matrixStack, buffer, packedLight, packedOverlay);
@@ -65,12 +65,12 @@ public class HogModel<H extends HogEntity> extends EntityModel<H> {
 
     @Override
     public void setRotationAngles(H entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
-        this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
-        this.body.rotateAngleX = ((float)Math.PI / 2F);
+        this.head.rotateAngleX = headPitch * ((float) Math.PI / 180F);
+        this.head.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
+        this.body.rotateAngleX = ((float) Math.PI / 2F);
         this.legBackRight.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        this.legBackLeft.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-        this.legFrontRight.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+        this.legBackLeft.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+        this.legFrontRight.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
         this.legFrontLeft.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
     }
 }

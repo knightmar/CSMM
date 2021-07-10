@@ -16,12 +16,12 @@ public class Network {
             .serverAcceptedVersions(PROTOCOL_VERSION::equals)
             .simpleChannel();
 
-    public static void registerNetworkPackets()
-    {
+    public static void registerNetworkPackets() {
         CHANNEL.messageBuilder(PlaceBlockButtonPacket.class, 0)
                 .encoder(PlaceBlockButtonPacket::encode)
                 .decoder(PlaceBlockButtonPacket::decode)
                 .consumer(PlaceBlockButtonPacket::handle)
                 .add();
+
     }
 }

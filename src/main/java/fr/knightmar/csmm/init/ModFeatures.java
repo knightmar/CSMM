@@ -15,11 +15,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class ModFeatures {
 
 
-    private ConfiguredFeature<?,?> ORE_BRONZE_FEARTURE;
-    private ConfiguredFeature<?,?> ORE_PLATINUM_FEARTURE;
+    private ConfiguredFeature<?, ?> ORE_BRONZE_FEARTURE;
+    private ConfiguredFeature<?, ?> ORE_PLATINUM_FEARTURE;
 
 
-    public void init(){
+    public void init() {
 
         ORE_BRONZE_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.BRONZE_ORE.get().getDefaultState(), 15))
                 .square()
@@ -34,8 +34,7 @@ public class ModFeatures {
         );
     }
 
-    public <FC extends IFeatureConfig> ConfiguredFeature<FC,?> register(String name,ConfiguredFeature<FC,?>feature)
-    {
+    public <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
         return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, name, feature);
 
     }

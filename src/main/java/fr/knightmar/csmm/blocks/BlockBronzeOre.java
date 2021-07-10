@@ -10,8 +10,6 @@ public class BlockBronzeOre extends Block {
         super(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).setRequiresTool());
 
 
-
-
     }
 
 

@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class TestRenderer extends MobRenderer<TestEntity, TestModel<TestEntity>> {
 
-    protected static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID,"textures/entity/test.png");
+    protected static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID, "textures/entity/test.png");
 
     public TestRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new TestModel<>(), 0.7F);

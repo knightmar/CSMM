@@ -4,17 +4,17 @@ import fr.knightmar.csmm.init.ModItems;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.LazyValue;
 import net.minecraft.util.SoundEvent;
 
 public enum CustomItemTiers implements IItemTier, IArmorMaterial {
-    BRONZE(1, 400, 4.8F, 1.4F, 15, new LazyValue<>(()->{return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
+    BRONZE(1, 400, 4.8F, 1.4F, 15, new LazyValue<>(() -> {
+        return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
     })),
-    PLATINUM(4, 3000, 10.0F, 5.0F,20,new LazyValue<>(()->{return Ingredient.fromItems(ModItems.PLATINUM_INGOT.get());}));
-    ;
+    PLATINUM(4, 3000, 10.0F, 5.0F, 20, new LazyValue<>(() -> {
+        return Ingredient.fromItems(ModItems.PLATINUM_INGOT.get());
+    }));;
 
 
     private final int harvestLevel;

@@ -5,7 +5,6 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import fr.knightmar.csmm.entities.TestEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
 
 
 public class TestModel<T extends TestEntity> extends EntityModel<T> {
@@ -61,7 +60,7 @@ public class TestModel<T extends TestEntity> extends EntityModel<T> {
 
     @Override
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.tete.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
+        this.tete.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
 
 
         this.corps.rotateAngleY = 0.0F;
@@ -69,7 +68,6 @@ public class TestModel<T extends TestEntity> extends EntityModel<T> {
         this.brasdroit.rotationPointX = -5.0F;
         this.brasgauche.rotationPointZ = 0.0F;
         this.brasgauche.rotationPointX = 5.0F;
-
 
 
         this.brasdroit.rotateAngleZ = 0.0F;
@@ -87,7 +85,7 @@ public class TestModel<T extends TestEntity> extends EntityModel<T> {
 
 
     @Override
-    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         corps.render(matrixStack, buffer, packedLight, packedOverlay);
         brasdroit.render(matrixStack, buffer, packedLight, packedOverlay);
         tete.render(matrixStack, buffer, packedLight, packedOverlay);

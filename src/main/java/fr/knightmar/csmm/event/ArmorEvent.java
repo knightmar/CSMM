@@ -5,10 +5,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ArmorEvent {
+    @OnlyIn(Dist.DEDICATED_SERVER)
     @SubscribeEvent
     public void onPlayerArmorEquip(LivingEquipmentChangeEvent event) {
         if (event.getEntityLiving() instanceof PlayerEntity) {
@@ -16,7 +19,7 @@ public class ArmorEvent {
 
             //vision nocture lors du port de casque
             if ((event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() == ModItems.BRONZE_HELMET.get())) {
-                player.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION,20*99999,0));
+                player.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 20 * 99999, 0));
             } else if (event.getFrom().getItem() == ModItems.BRONZE_HELMET.get() && event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty()) {
                 player.removePotionEffect(Effects.NIGHT_VISION);
             }
@@ -42,7 +45,7 @@ public class ArmorEvent {
             if ((event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.BACKPACK.get())) {
                 ModItems.backpackIsUsed = "true";
             } else if (event.getFrom().getItem() == ModItems.BACKPACK.get() && event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.CHEST).isEmpty()) {
-                ModItems.backpackIsUsed ="false";
+                ModItems.backpackIsUsed = "false";
             }
         }
     }

@@ -65,10 +65,14 @@ public class HogEntity extends AnimalEntity {
     }
 
     @Override
-    protected SoundEvent getAmbientSound() { return SoundEvents.ENTITY_PIG_AMBIENT; }
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_PIG_AMBIENT;
+    }
 
     @Override
-    protected SoundEvent getDeathSound() { return SoundEvents.ENTITY_PIG_DEATH; }
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_PIG_DEATH;
+    }
 
     @ParametersAreNonnullByDefault
     @Override

@@ -1,7 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-
-
   "pattern": [
     " X ",
     " X ",
@@ -12,7 +10,7 @@
       "item": "csmm:bronze_ingot"
     },
     "G": {
-      "item": "minecraft:stick"
+      "item": "csmm:bronze_stick"
     }
   },
   "result": {

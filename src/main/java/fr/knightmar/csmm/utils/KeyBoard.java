@@ -9,8 +9,8 @@ import org.lwjgl.glfw.GLFW;
 public class KeyBoard {
     public static final KeyBinding GUI = new KeyBinding("key.gui", KeyConflictContext.UNIVERSAL, InputMappings.Type.KEYSYM, GLFW.GLFW_KEY_K, "key.categories.gui");
     public static final KeyBinding BACKPACK = new KeyBinding("key.backpack", KeyConflictContext.UNIVERSAL, InputMappings.Type.KEYSYM, GLFW.GLFW_KEY_B, "key.categories.gui");
-    public static void register()
-    {
+
+    public static void register() {
         ClientRegistry.registerKeyBinding(GUI);
     }
 

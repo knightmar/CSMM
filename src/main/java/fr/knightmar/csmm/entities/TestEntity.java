@@ -17,10 +17,10 @@ public class TestEntity extends CreatureEntity {
     }
 
     //func_233666_p_ = registerAttributes()
-    public static AttributeModifierMap.MutableAttribute setCustomAttributes(){
+    public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH,30D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED,0.20D);
+                .createMutableAttribute(Attributes.MAX_HEALTH, 30D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.20D);
 
     }
 
@@ -34,5 +34,5 @@ public class TestEntity extends CreatureEntity {
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
     }
 
-    
+
 }

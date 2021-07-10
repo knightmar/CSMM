@@ -5,12 +5,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityType;
 
 public class TileEntityTemp extends TileEntity implements ITickableTileEntity {
 
     private int counter = 0;
-
 
 
     public TileEntityTemp() {
@@ -35,7 +33,7 @@ public class TileEntityTemp extends TileEntity implements ITickableTileEntity {
 
     @Override
     public void tick() {
-        this.setCounter(getCounter()+1);
+        this.setCounter(getCounter() + 1);
     }
 
     public int getCounter() {

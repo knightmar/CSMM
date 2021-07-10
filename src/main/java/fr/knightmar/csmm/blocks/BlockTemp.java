@@ -43,7 +43,7 @@ public class BlockTemp extends Block {
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 
-        if (worldIn.getTileEntity(pos) instanceof TileEntityTemp){
+        if (worldIn.getTileEntity(pos) instanceof TileEntityTemp) {
 
             TileEntityTemp te = (TileEntityTemp) worldIn.getTileEntity(pos);
             assert te != null;

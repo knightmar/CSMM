@@ -1,7 +1,7 @@
 package fr.knightmar.csmm.event;
 
 import fr.knightmar.csmm.Main;
-import fr.knightmar.csmm.gui.TestGui;
+import fr.knightmar.csmm.client.gui.TestGui;
 import fr.knightmar.csmm.init.ModItems;
 import fr.knightmar.csmm.utils.KeyBoard;
 import net.minecraft.client.Minecraft;
@@ -22,7 +22,6 @@ public class ClientEvents {
         if (KeyBoard.BACKPACK.isPressed()) {
             if (ModItems.backpackIsUsed.equals("true")) {
 
-
             } else {
                 ModItems.backpackIsUsed = "no you can't";
             }
@@ -35,4 +34,5 @@ public class ClientEvents {
         Minecraft.getInstance().fontRenderer.drawString(event.getMatrixStack(), ModItems.backpackIsUsed, 0, 0, 0);
     }
 }
+
 

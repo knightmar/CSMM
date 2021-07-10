@@ -7,8 +7,8 @@
   "item.csmm.bronze_shovel": "Pelle en bronze",
   "item.csmm.bronze_axe": "Hache en bronze",
   "block.csmm.temp_block": "Bloc compteur",
-  "itemGroup.BLOCKS": "Blocs",
-  "itemGroup.ITEMS": "Items",
+  "itemGroup.blocks": "Blocs",
+  "itemGroup.items": "Items",
   "block.csmm.reinforced_block": "Block renforcé",
   "item.csmm.platinum_ingot": "Lingot de Platinum",
   "item.csmm.platinum_sword": "Épée de Platinum",
@@ -17,7 +17,5 @@
   "item.csmm.platinum_leggings": "Pantalon de Platinum",
   "item.csmm.platinum_boots": "Bottes en Platinum",
   "entity.csmm.hog": "Sanglier",
-  "entity.csmm.croco:": "Crocodile",
-  "block.csmm.mandragore_crop": "Mandragore Seeds"
-
+  "entity.csmm.croco:": "Crocodile"
 }

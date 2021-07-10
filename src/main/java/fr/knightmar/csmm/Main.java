@@ -5,7 +5,6 @@ import fr.knightmar.csmm.entities.CrocoEntity;
 import fr.knightmar.csmm.entities.HogEntity;
 import fr.knightmar.csmm.entities.TestEntity;
 import fr.knightmar.csmm.event.ArmorEvent;
-import fr.knightmar.csmm.event.CommonEvents;
 import fr.knightmar.csmm.init.*;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.utils.KeyBoard;
@@ -20,7 +19,6 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -30,23 +28,23 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-
 @Mod(Main.MODID)
 public class Main {
 
-    private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "csmm";
-
-    public static final ItemGroup BLOCKS = new ItemGroup("BLOCKS") {
+    public static final ItemGroup BLOCKS = new ItemGroup("blocks") {
         @Override
-        public ItemStack createIcon() { return new ItemStack(ModBlocks.TEMP_BLOCK.get()); }
+        public ItemStack createIcon() {
+            return new ItemStack(ModBlocks.TEMP_BLOCK.get());
+        }
     };
-
-    public static final ItemGroup ITEMS = new ItemGroup("ITEMS") {
+    public static final ItemGroup ITEMS = new ItemGroup("items") {
         @Override
-        public ItemStack createIcon() { return new ItemStack(ModItems.BRONZE_INGOT.get()); }
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.BRONZE_INGOT.get());
+        }
     };
-
+    private static final Logger LOGGER = LogManager.getLogger();
 
 
     public Main() {
@@ -59,7 +57,6 @@ public class Main {
         bus.addListener(this::clientSetup);
 
 
-
         ModSounds.SOUNDS.register(bus);
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
@@ -69,17 +66,12 @@ public class Main {
         BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(Main.MODID, "platinum_biome")), 5));
 
 
-
         MinecraftForge.EVENT_BUS.register(this);
 
         Network.registerNetworkPackets();
 
 
-
-
-
     }
-
 
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -92,21 +84,20 @@ public class Main {
 
     }
 
-    public void onEntityAttributeCreation(EntityAttributeCreationEvent event){
+    public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
         event.put(ModEntityType.HOG.get(), HogEntity.setCustomAttributes().create());
         event.put(ModEntityType.CROCO.get(), CrocoEntity.setCustomAttributes().create());
         event.put(ModEntityType.TEST.get(), TestEntity.setCustomAttributes().create());
     }
 
-    private void clientSetup(final FMLClientSetupEvent event)
-    {
+    private void clientSetup(final FMLClientSetupEvent event) {
         KeyBoard.register();
         RenderTypeLookup.setRenderLayer(ModBlocks.POLLENIUM_CROPS.get(), RenderType.getCutout());
 
     }
 
 
-    public void onServerStarting(FMLServerStartingEvent event){
+    public void onServerStarting(FMLServerStartingEvent event) {
 
     }
 

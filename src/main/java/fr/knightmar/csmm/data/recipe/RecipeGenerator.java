@@ -19,8 +19,8 @@ public class RecipeGenerator extends RecipeProvider {
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
 
 
-        CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(ModBlocks.PLATINUM_ORE.get()), ModItems.PLATINUM_INGOT.get(), 1f, 200)
-                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModBlocks.PLATINUM_ORE.get().asItem()))
+        CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(ModBlocks.PLATINIUM_ORE.get()), ModItems.PLATINIUM_INGOT.get(), 1f, 200)
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModBlocks.PLATINIUM_ORE.get().asItem()))
                 .build(consumer);
 
 
@@ -74,43 +74,43 @@ public class RecipeGenerator extends RecipeProvider {
                 .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.BRONZE_INGOT.get()))
                 .build(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINUM_SWORD.get(), 1)
+        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINIUM_SWORD.get(), 1)
                 .patternLine(" B ")
                 .patternLine(" B ")
                 .patternLine(" S ")
-                .key('B', ModItems.PLATINUM_INGOT.get())
+                .key('B', ModItems.PLATINIUM_INGOT.get())
                 .key('S', ModItems.BRONZE_STICK.get())
-                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINUM_INGOT.get()))
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINIUM_INGOT.get()))
                 .build(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINUM_HELMET.get())
-                .key('X', ModItems.PLATINUM_INGOT.get())
+        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINIUM_HELMET.get())
+                .key('X', ModItems.PLATINIUM_INGOT.get())
                 .patternLine("XXX")
                 .patternLine("X X")
-                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINUM_INGOT.get()))
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINIUM_INGOT.get()))
                 .build(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINUM_CHESTPLATE.get())
-                .key('X', ModItems.PLATINUM_INGOT.get())
+        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINIUM_CHESTPLATE.get())
+                .key('X', ModItems.PLATINIUM_INGOT.get())
                 .patternLine("X X")
                 .patternLine("XXX")
                 .patternLine("XXX")
-                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINUM_INGOT.get()))
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINIUM_INGOT.get()))
                 .build(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINUM_LEGGINGS.get())
-                .key('X', ModItems.PLATINUM_INGOT.get())
+        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINIUM_LEGGINGS.get())
+                .key('X', ModItems.PLATINIUM_INGOT.get())
                 .patternLine("XXX")
                 .patternLine("X X")
                 .patternLine("X X")
-                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINUM_INGOT.get()))
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINIUM_INGOT.get()))
                 .build(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINUM_BOOTS.get())
-                .key('X', ModItems.PLATINUM_INGOT.get())
+        ShapedRecipeBuilder.shapedRecipe(ModItems.PLATINIUM_BOOTS.get())
+                .key('X', ModItems.PLATINIUM_INGOT.get())
                 .patternLine("X X")
                 .patternLine("X X")
-                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINUM_INGOT.get()))
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINIUM_INGOT.get()))
                 .build(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(ModItems.BRONZE_HELMET.get())

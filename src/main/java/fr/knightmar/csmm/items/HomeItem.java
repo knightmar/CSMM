@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class HomeItem extends Item {
     public HomeItem() {
-        super(new Item.Properties().group(Main.ITEMS).rarity(Rarity.EPIC).maxStackSize(1));
+        super(new Item.Properties().group(Main.items).rarity(Rarity.EPIC).maxStackSize(1));
     }
 
     @Override

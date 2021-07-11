@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    " B ",
+    " S "
+  ],
+  "key": {
+    "B": {
+      "item": "csmm:platinium_ingot"
+    },
+    "S": {
+      "item": "csmm:bronze_stick"
+    }
+  },
+  "result": {
+    "item": "csmm:platinium_sword"
+  }
+}

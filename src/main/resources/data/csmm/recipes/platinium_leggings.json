@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "csmm:platinium_ingot"
+    }
+  },
+  "result": {
+    "item": "csmm:platinium_leggings"
+  }
+}

@@ -14,8 +14,8 @@ import java.util.function.Supplier;
 
 
 public enum ArmorMaterial implements IArmorMaterial {
-    PLATINUM("platinum", 40, new int[]{4, 8, 10, 4}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 5.0F, 5.0F, () -> {
-        return Ingredient.fromItems(ModItems.PLATINUM_INGOT.get());
+    PLATINIUM("platinium", 40, new int[]{4, 8, 10, 4}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 5.0F, 5.0F, () -> {
+        return Ingredient.fromItems(ModItems.PLATINIUM_INGOT.get());
     }),
     BRONZE("bronze", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F, 0.0F, () -> {
         return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());

@@ -7,7 +7,7 @@
   "item.csmm.bronze_shovel": "Pelle en bronze",
   "item.csmm.bronze_axe": "Hache en bronze",
   "block.csmm.temp_block": "Bloc compteur",
-  "itemGroup.blocks": "Blocs",
+  "itemGroup.BLOCKS": "Blocs",
   "itemGroup.items": "Items",
   "block.csmm.reinforced_block": "Block renforcé",
   "item.csmm.platinum_ingot": "Lingot de Platinum",

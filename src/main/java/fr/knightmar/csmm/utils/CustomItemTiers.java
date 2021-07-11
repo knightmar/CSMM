@@ -12,8 +12,8 @@ public enum CustomItemTiers implements IItemTier, IArmorMaterial {
     BRONZE(1, 400, 4.8F, 1.4F, 15, new LazyValue<>(() -> {
         return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
     })),
-    PLATINUM(4, 3000, 10.0F, 5.0F, 20, new LazyValue<>(() -> {
-        return Ingredient.fromItems(ModItems.PLATINUM_INGOT.get());
+    PLATINIUM(4, 3000, 10.0F, 5.0F, 20, new LazyValue<>(() -> {
+        return Ingredient.fromItems(ModItems.PLATINIUM_INGOT.get());
     }));;
 
 

@@ -32,13 +32,13 @@ import org.apache.logging.log4j.Logger;
 public class Main {
 
     public static final String MODID = "csmm";
-    public static final ItemGroup BLOCKS = new ItemGroup("blocks") {
+    public static final ItemGroup blocks = new ItemGroup("blocks") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(ModBlocks.TEMP_BLOCK.get());
         }
     };
-    public static final ItemGroup ITEMS = new ItemGroup("items") {
+    public static final ItemGroup items = new ItemGroup("items") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(ModItems.BRONZE_INGOT.get());

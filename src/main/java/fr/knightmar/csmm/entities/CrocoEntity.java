@@ -43,6 +43,7 @@ public class CrocoEntity extends MonsterEntity {
                 .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0);
 
 
+
     }
 
 

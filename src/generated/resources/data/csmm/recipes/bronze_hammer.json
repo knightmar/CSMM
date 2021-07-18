@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "item": "csmm:bronze_ingot"
+    },
+    "S": {
+      "item": "csmm:bronze_stick"
+    }
+  },
+  "result": {
+    "item": "csmm:bronze_hammer"
+  }
+}

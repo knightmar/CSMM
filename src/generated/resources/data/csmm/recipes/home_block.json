@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PTP",
+    "SRS",
+    "SCS"
+  ],
+  "key": {
+    "T": {
+      "item": "minecraft:red_carpet"
+    },
+    "C": {
+      "item": "csmm:bronze_ingot"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "P": {
+      "item": "minecraft:oak_planks"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "csmm:home_block"
+  }
+}

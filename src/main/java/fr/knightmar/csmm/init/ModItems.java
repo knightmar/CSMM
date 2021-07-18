@@ -2,6 +2,7 @@ package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.items.BronzeHammer;
+import fr.knightmar.csmm.items.FlyingItem;
 import fr.knightmar.csmm.items.HomeItem;
 import fr.knightmar.csmm.utils.ArmorMaterial;
 import fr.knightmar.csmm.utils.CustomItemTiers;
@@ -47,8 +48,11 @@ public class ModItems {
     public static final RegistryObject<Item> HOME_ITEM = ITEMS.register("home_item", HomeItem::new);
 
     public static final RegistryObject<Item> POLLENIUM_SEEDS =
-            ITEMS.register("pollenium_seeds", () -> new BlockItem(ModBlocks.POLLENIUM_CROPS.get(), new Item.Properties().group(Main.items).isImmuneToFire()));
+            ITEMS.register("pollenium_seeds", () -> new BlockItem(ModBlocks.POLLENIUM_CROPS.get(), new Item.Properties().group(Main.items)));
+
     public static final RegistryObject<Item> POLLENIUM_SHARD = ITEMS.register("pollenium_shard", () -> new Item(new Item.Properties().group(Main.items)));
     public static final RegistryObject<ArmorItem> BACKPACK = ITEMS.register("backpack", () -> new ArmorItem(net.minecraft.item.ArmorMaterial.CHAIN, EquipmentSlotType.CHEST, new Item.Properties().maxStackSize(1).group(Main.items)));
     public static final RegistryObject<Item> BRONZE_HAMMER = ITEMS.register("bronze_hammer", () -> new BronzeHammer(new Item.Properties().maxStackSize(1).group(Main.items).isImmuneToFire()));
+
+    public static final RegistryObject<Item> FLYING_ITEM = ITEMS.register("flying_item", FlyingItem::new);
 }

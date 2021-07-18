@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = Main.MODID, value = Dist.CLIENT)
 public class ClientEvents {
 
+
     @SubscribeEvent
     public static void onKeyInput(InputEvent.KeyInputEvent e) {
         if (KeyBoard.GUI.isPressed()) {
@@ -21,9 +22,11 @@ public class ClientEvents {
         }
         if (KeyBoard.BACKPACK.isPressed()) {
             if (ModItems.backpackIsUsed.equals("true")) {
+                System.out.println("test");
 
             } else {
-                ModItems.backpackIsUsed = "no you can't";
+                System.out.println("no you can't");
+
             }
         }
     }
@@ -33,6 +36,7 @@ public class ClientEvents {
     public static void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
         Minecraft.getInstance().fontRenderer.drawString(event.getMatrixStack(), ModItems.backpackIsUsed, 0, 0, 0);
     }
+
 }
 
 

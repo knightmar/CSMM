@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "csmm:bronze_ingot"
+    }
+  },
+  "result": {
+    "item": "csmm:bronze_block"
+  }
+}

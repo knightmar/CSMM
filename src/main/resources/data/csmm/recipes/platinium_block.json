@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "csmm:platinium_ingot"
+    }
+  },
+  "result": {
+    "item": "csmm:platinium_block"
+  }
+}

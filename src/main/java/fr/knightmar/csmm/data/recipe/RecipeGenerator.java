@@ -18,7 +18,7 @@ public class RecipeGenerator extends RecipeProvider {
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
 
-
+        //Crafts items mod
         CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(ModBlocks.PLATINIUM_ORE.get()), ModItems.PLATINIUM_INGOT.get(), 1f, 200)
                 .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModBlocks.PLATINIUM_ORE.get().asItem()))
                 .build(consumer);
@@ -143,14 +143,101 @@ public class RecipeGenerator extends RecipeProvider {
                 .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.BRONZE_INGOT.get()))
                 .build(consumer);
 
+        ShapedRecipeBuilder.shapedRecipe(ModItems.BACKPACK.get())
+                .key('L', Items.LEATHER)
+                .key('C', Items.CHEST)
+                .patternLine("L L")
+                .patternLine("LCL")
+                .patternLine("LLL")
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(Items.CHEST))
+                .build(consumer);
 
+        ShapedRecipeBuilder.shapedRecipe(ModItems.BRONZE_HAMMER.get())
+                .key('I', ModItems.BRONZE_INGOT.get())
+                .key('S', ModItems.BRONZE_STICK.get())
+                .patternLine("III")
+                .patternLine(" S ")
+                .patternLine(" S ")
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.BRONZE_INGOT.get()))
+                .build(consumer);
+
+        //crafts blocks mod
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.BRONZE_BLOCK.get())
+                .patternLine("CCC")
+                .patternLine("CCC")
+                .patternLine("CCC")
+                .key('C', ModItems.BRONZE_INGOT.get())
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.BRONZE_INGOT.get()))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.TEMP_BLOCK.get())
+                .patternLine("CCC")
+                .patternLine("CGC")
+                .patternLine("CCC")
+                .key('C', ModItems.BRONZE_INGOT.get())
+                .key('G', Items.CLOCK)
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(Items.CLOCK))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.REINFORCED_STONE.get())
+                .patternLine("OOO")
+                .patternLine("OPO")
+                .patternLine("OOO")
+                .key('P', ModBlocks.PLATINIUM_BLOCK.get())
+                .key('O', Blocks.OBSIDIAN)
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModBlocks.PLATINIUM_BLOCK.get()))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.SOAP_BLOCK.get())
+                .patternLine("CCC")
+                .patternLine("CWC")
+                .patternLine("CCC")
+                .key('C', Blocks.CLAY)
+                .key('W', Items.WATER_BUCKET)
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(Blocks.CLAY))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.PLATINIUM_BLOCK.get())
+                .patternLine("PPP")
+                .patternLine("PPP")
+                .patternLine("PPP")
+                .key('P', ModItems.PLATINIUM_INGOT.get())
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(ModItems.PLATINIUM_INGOT.get()))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.LIGHT_BLOCK.get())
+                .patternLine("CDC")
+                .patternLine("CBC")
+                .patternLine("CCC")
+                .key('C', ModItems.BRONZE_INGOT.get())
+                .key('D', Blocks.DAYLIGHT_DETECTOR)
+                .key('B', Ingredient.fromItems(Items.ACACIA_BUTTON, Items.BIRCH_BUTTON, Items.CRIMSON_BUTTON, Items.OAK_BUTTON, Items.DARK_OAK_BUTTON, Items.JUNGLE_BUTTON, Items.POLISHED_BLACKSTONE_BUTTON, Items.SPRUCE_BUTTON, Items.STONE_BUTTON, Items.WARPED_BUTTON))
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(Items.DAYLIGHT_DETECTOR))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.HOME_BLOCK.get())
+                .patternLine("PTP")
+                .patternLine("SRS")
+                .patternLine("SCS")
+                .key('T', Blocks.RED_CARPET)
+                .key('C', ModItems.BRONZE_INGOT.get())
+                .key('S', Blocks.STONE)
+                .key('P', Blocks.OAK_PLANKS)
+                .key('R', Blocks.REDSTONE_BLOCK)
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(Blocks.BLUE_CARPET))
+                .build(consumer);
+
+
+        //ajout crafts vanilla
         ShapedRecipeBuilder.shapedRecipe(Blocks.GRASS_BLOCK, 3)
                 .patternLine("HHH")
                 .patternLine("TTT")
                 .patternLine("TTT")
-                .key('H', Blocks.GRASS)
+                .key('H', Items.WHEAT_SEEDS)
                 .key('T', Blocks.DIRT)
-                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(Blocks.GRASS, Blocks.DIRT))
+                .addCriterion("unlock", InventoryChangeTrigger.Instance.forItems(Items.WHEAT_SEEDS, Blocks.DIRT))
                 .build(consumer);
+
+
     }
 }

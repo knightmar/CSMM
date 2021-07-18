@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "csmm:platinium_block"
+    "item": "csmm:platinium_ore"
   },
   "result": "csmm:platinium_ingot",
   "experience": 1.0,

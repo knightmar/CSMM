@@ -5,13 +5,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ArmorEvent {
-    @OnlyIn(Dist.DEDICATED_SERVER)
     @SubscribeEvent
     public void onPlayerArmorEquip(LivingEquipmentChangeEvent event) {
         if (event.getEntityLiving() instanceof PlayerEntity) {

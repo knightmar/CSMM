@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CGC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "csmm:bronze_ingot"
+    },
+    "G": {
+      "item": "minecraft:clock"
+    }
+  },
+  "result": {
+    "item": "csmm:temp_block"
+  }
+}

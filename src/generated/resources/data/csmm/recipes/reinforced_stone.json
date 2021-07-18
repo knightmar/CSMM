@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OOO",
+    "OPO",
+    "OOO"
+  ],
+  "key": {
+    "P": {
+      "item": "csmm:platinium_block"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "csmm:reinforced_stone"
+  }
+}

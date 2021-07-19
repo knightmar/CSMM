@@ -9,7 +9,7 @@ import net.minecraft.util.LazyValue;
 import net.minecraft.util.SoundEvent;
 
 public enum CustomItemTiers implements IItemTier, IArmorMaterial {
-    BRONZE(1, 400, 4.8F, 1.4F, 15, new LazyValue<>(() -> {
+    BRONZE(3, 400, 4.8F, 1.4F, 15, new LazyValue<>(() -> {
         return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
     })),
     PLATINIUM(4, 3000, 10.0F, 5.0F, 20, new LazyValue<>(() -> {

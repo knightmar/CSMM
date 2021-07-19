@@ -1,5 +1,6 @@
 package fr.knightmar.csmm.init;
 
+import fr.knightmar.csmm.utils.ModOreFeatureConfig;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -8,32 +9,26 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.placement.DepthAverageConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ModFeatures {
-
-
     private ConfiguredFeature<?, ?> ORE_BRONZE_FEARTURE;
     private ConfiguredFeature<?, ?> ORE_PLATINUM_FEARTURE;
-
-
     public void init() {
-
-        ORE_BRONZE_FEARTURE = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.BRONZE_ORE.get().getDefaultState(), 15))
+        ORE_BRONZE_FEARTURE = register("ore_bronze", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.BRONZE_ORE.get().getDefaultState(), 5))
                 .square()
-                .range(50)
-                .count(20)
-                .chance(100)
+                .count(10))
+                .withPlacement(Placement.DEPTH_AVERAGE.configure(new DepthAverageConfig(38,20)));
 
-        );
         ORE_PLATINUM_FEARTURE = register("ore_platinum", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.PLATINIUM_BLOCK.get().getDefaultState(), 15)).square().range(50).chance(100)
 
 
         );
     }
-
     public <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature) {
         return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, name, feature);
 

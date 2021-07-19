@@ -52,7 +52,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> POLLENIUM_SHARD = ITEMS.register("pollenium_shard", () -> new Item(new Item.Properties().group(Main.items)));
     public static final RegistryObject<ArmorItem> BACKPACK = ITEMS.register("backpack", () -> new ArmorItem(net.minecraft.item.ArmorMaterial.CHAIN, EquipmentSlotType.CHEST, new Item.Properties().maxStackSize(1).group(Main.items)));
-    public static final RegistryObject<Item> BRONZE_HAMMER = ITEMS.register("bronze_hammer", () -> new BronzeHammer(new Item.Properties().maxStackSize(1).group(Main.items).isImmuneToFire()));
+    public static final RegistryObject<Item> BRONZE_HAMMER = ITEMS.register("bronze_hammer", () -> new BronzeHammer(new Item.Properties().maxStackSize(1).group(Main.items).isImmuneToFire(),1f));
 
     public static final RegistryObject<Item> FLYING_ITEM = ITEMS.register("flying_item", FlyingItem::new);
 }

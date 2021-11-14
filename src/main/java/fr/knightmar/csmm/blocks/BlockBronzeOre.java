@@ -7,7 +7,7 @@ import net.minecraftforge.common.ToolType;
 
 public class BlockBronzeOre extends Block {
     public BlockBronzeOre() {
-        super(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).setRequiresTool());
+        super(AbstractBlock.Properties.of(Material.STONE).strength(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).requiresCorrectToolForDrops());
 
 
     }

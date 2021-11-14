@@ -8,7 +8,7 @@ import net.minecraftforge.common.ToolType;
 
 public class BlockBronze extends Block {
     public BlockBronze() {
-        super(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).setRequiresTool());
+        super(AbstractBlock.Properties.of(Material.METAL).strength(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).requiresCorrectToolForDrops());
     }
 }
 

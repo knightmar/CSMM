@@ -24,7 +24,7 @@ public class BlockTemp extends Block {
 
 
     public BlockTemp() {
-        super(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(5f, 20f).harvestTool(ToolType.PICKAXE).harvestLevel(1).setRequiresTool());
+        super(AbstractBlock.Properties.of(Material.METAL).strength(5f, 20f).harvestTool(ToolType.PICKAXE).harvestLevel(1).requiresCorrectToolForDrops());
 
     }
 
@@ -41,13 +41,13 @@ public class BlockTemp extends Block {
 
     @ParametersAreNonnullByDefault
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 
         if (worldIn.getTileEntity(pos) instanceof TileEntityTemp) {
 
             TileEntityTemp te = (TileEntityTemp) worldIn.getTileEntity(pos);
             assert te != null;
-            player.sendStatusMessage(new StringTextComponent("Counter : " + te.getCounter()), true);
+            player.displayClientMessage(new StringTextComponent("Counter : " + te.getCounter()), true);
             return ActionResultType.SUCCESS;
         }
 

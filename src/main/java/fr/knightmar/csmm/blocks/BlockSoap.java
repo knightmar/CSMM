@@ -7,6 +7,6 @@ import net.minecraftforge.common.ToolType;
 
 public class BlockSoap extends Block {
     public BlockSoap() {
-        super(AbstractBlock.Properties.create(Material.ICE).hardnessAndResistance(2.8F).slipperiness(1.1F).setRequiresTool().harvestTool(ToolType.SHOVEL));
+        super(AbstractBlock.Properties.of(Material.ICE).strength(2.8F).friction(1.1F).requiresCorrectToolForDrops().harvestTool(ToolType.SHOVEL));
     }
 }

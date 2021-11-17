@@ -3,7 +3,6 @@ package fr.knightmar.csmm;
 
 import fr.knightmar.csmm.entities.CrocoEntity;
 import fr.knightmar.csmm.entities.HogEntity;
-import fr.knightmar.csmm.entities.TestEntity;
 import fr.knightmar.csmm.event.ArmorEvent;
 import fr.knightmar.csmm.init.*;
 import fr.knightmar.csmm.network.Network;
@@ -12,6 +11,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -34,13 +34,13 @@ public class Main {
     public static final String MODID = "csmm";
     public static final ItemGroup blocks = new ItemGroup("blocks") {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModBlocks.TEMP_BLOCK.get());
         }
     };
     public static final ItemGroup items = new ItemGroup("items") {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModItems.BRONZE_INGOT.get());
         }
     };
@@ -63,7 +63,7 @@ public class Main {
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
         BiomeInit.BIOMES.register(bus);
-        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(Main.MODID, "platinum_biome")), 5));
+        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(Main.MODID, "platinum_biome")), 5));
 
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -85,14 +85,13 @@ public class Main {
     }
 
     public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
-        event.put(ModEntityType.HOG.get(), HogEntity.setCustomAttributes().create());
-        event.put(ModEntityType.CROCO.get(), CrocoEntity.setCustomAttributes().create());
-        event.put(ModEntityType.TEST.get(), TestEntity.setCustomAttributes().create());
+        event.put(ModEntityType.HOG.get(), HogEntity.setCustomAttributes().build());
+        event.put(ModEntityType.CROCO.get(), CrocoEntity.setCustomAttributes().build());
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
         KeyBoard.register();
-        RenderTypeLookup.setRenderLayer(ModBlocks.POLLENIUM_CROPS.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.POLLENIUM_CROPS.get(), RenderType.cutout());
 
     }
 

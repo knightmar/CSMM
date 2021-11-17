@@ -3,7 +3,6 @@ package fr.knightmar.csmm.init;
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.entities.CrocoEntity;
 import fr.knightmar.csmm.entities.HogEntity;
-import fr.knightmar.csmm.entities.TestEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -17,17 +16,13 @@ public class ModEntityType {
 
     // Entity Types
     public static final RegistryObject<EntityType<HogEntity>> HOG = ENTITY_TYPES.register("hog",
-            () -> EntityType.Builder.create(HogEntity::new, EntityClassification.CREATURE)
-                    .size(1.0f, 1.0f) // Hitbox Size
+            () -> EntityType.Builder.of(HogEntity::new, EntityClassification.CREATURE)
+                    .sized(1.0f, 1.0f) // Hitbox Size
                     .build(new ResourceLocation(Main.MODID, "hog").toString()));
 
     public static final RegistryObject<EntityType<CrocoEntity>> CROCO = ENTITY_TYPES.register("croco",
-            () -> EntityType.Builder.create(CrocoEntity::new, EntityClassification.CREATURE)
-                    .size(1.5f, 0.6f) // Hitbox Size
+            () -> EntityType.Builder.of(CrocoEntity::new, EntityClassification.CREATURE)
+                    .sized(1.5f, 0.6f) // Hitbox Size
                     .build(new ResourceLocation(Main.MODID, "croco").toString()));
 
-    public static final RegistryObject<EntityType<TestEntity>> TEST = ENTITY_TYPES.register("test",
-            () -> EntityType.Builder.create(TestEntity::new, EntityClassification.CREATURE)
-                    .size(1.0f, 1.0f) // Hitbox Size
-                    .build(new ResourceLocation(Main.MODID, "test").toString()));
 }

@@ -12,21 +12,21 @@ import net.minecraft.world.World;
 
 public class HomeItem extends Item {
     public HomeItem() {
-        super(new Item.Properties().group(Main.items).rarity(Rarity.EPIC).maxStackSize(1));
+        super(new Item.Properties().tab(Main.items).rarity(Rarity.EPIC).stacksTo(1));
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
         if (!playerIn.getPersistentData().isEmpty()) {
             int x = playerIn.getPersistentData().getInt("home_x");
             int y = playerIn.getPersistentData().getInt("home_y");
             int z = playerIn.getPersistentData().getInt("home_z");
-            playerIn.setPosition(x + 0.5, y, z + 0.5);
-            playerIn.setMotion(0, 0, 0);
+            playerIn.setPos(x + 0.5, y, z + 0.5);
+            playerIn.setDeltaMovement(0, 0, 0);
         } else {
-            playerIn.sendStatusMessage(new StringTextComponent("Home non trouvé"), true);
+            playerIn.displayClientMessage(new StringTextComponent("Home non trouvé"), true);
 
         }
-        return super.onItemRightClick(worldIn, playerIn, handIn);
+        return super.use(worldIn, playerIn, handIn);
     }
 }

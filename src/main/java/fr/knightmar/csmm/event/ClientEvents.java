@@ -21,10 +21,10 @@ public class ClientEvents {
 
     @SubscribeEvent
     public static void onKeyInput(InputEvent.KeyInputEvent e) {
-        if (KeyBoard.GUI.isPressed()) {
-            Minecraft.getInstance().displayGuiScreen(new TestGui());
+        if (KeyBoard.GUI.isDown()) {
+            Minecraft.getInstance().setScreen(new TestGui());
         }
-        if (KeyBoard.BACKPACK.isPressed()) {
+        if (KeyBoard.BACKPACK.isDown()) {
             if (ModItems.backpackIsUsed.equals("true")) {
                 System.out.println("test");
 
@@ -34,9 +34,10 @@ public class ClientEvents {
             }
         }
     }
+
     @SubscribeEvent
     public static void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
-        Minecraft.getInstance().fontRenderer.drawString(event.getMatrixStack(), ModItems.backpackIsUsed, 0, 0, 0);
+        Minecraft.getInstance().font.draw(event.getMatrixStack(), ModItems.backpackIsUsed, 0, 0, 0);
     }
 }
 

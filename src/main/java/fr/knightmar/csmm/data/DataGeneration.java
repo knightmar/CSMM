@@ -2,9 +2,7 @@ package fr.knightmar.csmm.data;
 
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.data.recipe.RecipeGenerator;
-import net.minecraft.data.AdvancementProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.LootTableProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;

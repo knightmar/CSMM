@@ -43,9 +43,9 @@ public class BlockTemp extends Block {
     @Override
     public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 
-        if (worldIn.getTileEntity(pos) instanceof TileEntityTemp) {
+        if (worldIn.getBlockEntity(pos) instanceof TileEntityTemp) {
 
-            TileEntityTemp te = (TileEntityTemp) worldIn.getTileEntity(pos);
+            TileEntityTemp te = (TileEntityTemp) worldIn.getBlockEntity(pos);
             assert te != null;
             player.displayClientMessage(new StringTextComponent("Counter : " + te.getCounter()), true);
             return ActionResultType.SUCCESS;

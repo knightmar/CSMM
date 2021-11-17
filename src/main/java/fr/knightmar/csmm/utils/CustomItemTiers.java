@@ -10,10 +10,10 @@ import net.minecraft.util.SoundEvent;
 
 public enum CustomItemTiers implements IItemTier, IArmorMaterial {
     BRONZE(3, 400, 4.8F, 1.4F, 15, new LazyValue<>(() -> {
-        return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
+        return Ingredient.of(ModItems.BRONZE_INGOT.get());
     })),
     PLATINIUM(4, 3000, 10.0F, 5.0F, 20, new LazyValue<>(() -> {
-        return Ingredient.fromItems(ModItems.PLATINIUM_INGOT.get());
+        return Ingredient.of(ModItems.PLATINIUM_INGOT.get());
     }));;
 
 
@@ -34,48 +34,48 @@ public enum CustomItemTiers implements IItemTier, IArmorMaterial {
     }
 
     @Override
-    public int getMaxUses() {
+    public int getUses() {
         return maxUses;
     }
 
     @Override
-    public float getEfficiency() {
+    public float getSpeed() {
         return efficiency;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return attackDamage;
     }
 
     @Override
-    public int getHarvestLevel() {
+    public int getLevel() {
         return harvestLevel;
     }
 
     @Override
-    public int getDurability(EquipmentSlotType slotIn) {
+    public int getDurabilityForSlot(EquipmentSlotType slotIn) {
         return 0;
     }
 
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+    public int getDefenseForSlot(EquipmentSlotType slotIn) {
         return 0;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return enchantability;
     }
 
     @Override
-    public SoundEvent getSoundEvent() {
+    public SoundEvent getEquipSound() {
         return null;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
-        return repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return repairMaterial.get();
     }
 
     @Override

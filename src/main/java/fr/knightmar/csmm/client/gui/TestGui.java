@@ -22,7 +22,8 @@ public class TestGui extends Screen {
 
     public TestGui() {
         super(new TranslationTextComponent("gui.guispells.title"));
-        this.world = Minecraft.getInstance().player.world;
+        assert Minecraft.getInstance().player != null;
+        this.world = Minecraft.getInstance().player.level;
     }
 
     //init Gui
@@ -33,7 +34,7 @@ public class TestGui extends Screen {
         this.addButton(new Button(guiLeft + (xSize / 2) - 70, guiTop + (ySize / 2) - 10, 150, 20, new TranslationTextComponent("csmm.guispells.button.navis.title"), button -> {
             toOverlay = "Button press";
             System.out.println(toOverlay);
-            this.closeScreen();
+            this.onClose();
             Network.CHANNEL.sendToServer(new PlaceBlockButtonPacket());
 
         }));
@@ -48,7 +49,7 @@ public class TestGui extends Screen {
 
     private void drawBackGround(MatrixStack matrixStack) {
         assert this.minecraft != null;
-        this.minecraft.getTextureManager().bindTexture(GUI_TEXTURE_LOCATION);
+        this.minecraft.getTextureManager().bind(GUI_TEXTURE_LOCATION);
         this.blit(matrixStack, guiLeft, guiTop, 0, 0, this.xSize, this.ySize);
     }
 

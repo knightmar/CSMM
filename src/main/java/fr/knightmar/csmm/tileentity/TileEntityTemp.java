@@ -16,15 +16,15 @@ public class TileEntityTemp extends TileEntity implements ITickableTileEntity {
     }
 
     @Override
-    public void read(BlockState state, CompoundNBT nbt) {
-        super.read(state, nbt);
+    public void load(BlockState state, CompoundNBT nbt) {
+        super.load(state, nbt);
 
         this.setCounter(nbt.getInt("counter"));
     }
 
     @Override
-    public CompoundNBT write(CompoundNBT compound) {
-        super.write(compound);
+    public CompoundNBT save(CompoundNBT compound) {
+        super.save(compound);
 
         compound.putInt("counter", this.getCounter());
 

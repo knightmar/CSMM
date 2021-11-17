@@ -26,7 +26,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class HogEntity extends AnimalEntity {
 
-    private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.CARROT, Items.POTATO, Items.BEETROOT);
+    private static final Ingredient TEMPTATION_ITEMS = Ingredient.of(Items.CARROT, Items.POTATO, Items.BEETROOT);
 
     private EatGrassGoal eatGrassGoal;
     private int hogTimer;
@@ -37,9 +37,9 @@ public class HogEntity extends AnimalEntity {
 
     //func_233666_p_ ---> registerAttributes()
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D);
+        return MobEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
 
@@ -60,60 +60,60 @@ public class HogEntity extends AnimalEntity {
 
     @ParametersAreNonnullByDefault
     @Override
-    protected int getExperiencePoints(PlayerEntity player) {
-        return 1 + this.world.rand.nextInt(4);
+    protected int getExperienceReward(PlayerEntity player) {
+        return 1 + this.level.random.nextInt(4);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_PIG_AMBIENT;
+        return SoundEvents.PIG_AMBIENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_PIG_DEATH;
+        return SoundEvents.PIG_DEATH;
     }
 
     @ParametersAreNonnullByDefault
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_PIG_HURT;
+        return SoundEvents.PIG_HURT;
     }
 
     @ParametersAreNonnullByDefault
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ENTITY_PIG_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.PIG_STEP, 0.15F, 1.0F);
     }
 
     @Override
-    protected void updateAITasks() {
-        this.hogTimer = this.eatGrassGoal.getEatingGrassTimer();
-        super.updateAITasks();
+    protected void customServerAiStep() {
+        this.hogTimer = this.eatGrassGoal.getEatAnimationTick();
+        super.customServerAiStep();
     }
 
 
     @ParametersAreNonnullByDefault
     @Nullable
     @Override
-    public AgeableEntity createChild(ServerWorld world, AgeableEntity mate) {
+    public AgeableEntity getBreedOffspring(ServerWorld world, AgeableEntity mate) {
         return null;
     }
 
     @Override
-    public void livingTick() {
-        if (this.world.isRemote) {
+    public void aiStep() {
+        if (this.level.isClientSide()) {
             this.hogTimer = Math.max(0, this.hogTimer - 1);
         }
-        super.livingTick();
+        super.aiStep();
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void handleStatusUpdate(byte id) {
+    public void handleEntityEvent(byte id) {
         if (id == 10) {
             this.hogTimer = 40;
         } else {
-            super.handleStatusUpdate(id);
+            super.handleEntityEvent(id);
         }
     }
 }

@@ -18,26 +18,25 @@ public class BiomeInit {
 
     public static Biome makeTestBiome(float depth, float scale, float temperature) {
         MobSpawnInfo.Builder mobspawninfo$builder = new MobSpawnInfo.Builder();
-        DefaultBiomeFeatures.withPassiveMobs(mobspawninfo$builder);
-        mobspawninfo$builder.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityType.HOG.get(), 8, 4, 4));
-        mobspawninfo$builder.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityType.CROCO.get(), 100, 1, 3));
-        mobspawninfo$builder.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.GHAST, 7, 4, 10));
+        DefaultBiomeFeatures.farmAnimals(mobspawninfo$builder);
+        mobspawninfo$builder.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityType.HOG.get(), 8, 4, 4));
+        mobspawninfo$builder.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityType.CROCO.get(), 100, 1, 3));
+        mobspawninfo$builder.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.GHAST, 7, 4, 10));
 
-        BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SurfacesBuilderInit.TEST);
-        DefaultBiomeFeatures.withStrongholdAndMineshaft(biomegenerationsettings$builder);
-        biomegenerationsettings$builder.withStructure(StructureFeatures.RUINED_PORTAL);
-        DefaultBiomeFeatures.withCavesAndCanyons(biomegenerationsettings$builder);
-        DefaultBiomeFeatures.withLavaAndWaterLakes(biomegenerationsettings$builder);
-        DefaultBiomeFeatures.withMonsterRoom(biomegenerationsettings$builder);
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SurfacesBuilderInit.TEST);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(biomegenerationsettings$builder);
+        biomegenerationsettings$builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
+        DefaultBiomeFeatures.addDefaultCarvers(biomegenerationsettings$builder);
+        DefaultBiomeFeatures.addDefaultLakes(biomegenerationsettings$builder);
 
-        return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS).depth(depth).scale(scale).temperature(temperature).downfall(1F).setEffects((new BiomeAmbience.Builder()).setWaterColor(12386452).setWaterFogColor(12386452).setFogColor(25343).withSkyColor(12255487/*getSkyColorWithTemperatureModifier(temperature)*/).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(mobspawninfo$builder.build()).withGenerationSettings(biomegenerationsettings$builder.build()).build();
+        return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(depth).scale(scale).temperature(temperature).downfall(1F).specialEffects((new BiomeAmbience.Builder()).waterColor(12386452).waterFogColor(12386452).fogColor(25343).skyColor(12255487/*getSkyColorWithTemperatureModifier(temperature)*/).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobspawninfo$builder.build()).generationSettings(biomegenerationsettings$builder.build()).build();
     }
 
 
     private static int getSkyColorWithTemperatureModifier(float temperature) {
         float lvt_1_1_ = temperature / 3.0F;
         lvt_1_1_ = MathHelper.clamp(lvt_1_1_, -1.0F, 1.0F);
-        return MathHelper.hsvToRGB(0.62222224F - lvt_1_1_ * 0.05F, 0.5F + lvt_1_1_ * 0.1F, 1.0F);
+        return MathHelper.hsvToRgb(0.62222224F - lvt_1_1_ * 0.05F, 0.5F + lvt_1_1_ * 0.1F, 1.0F);
     }
 
 

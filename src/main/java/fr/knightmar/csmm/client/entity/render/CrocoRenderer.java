@@ -17,7 +17,7 @@ public class CrocoRenderer extends MobRenderer<CrocoEntity, CrocoModel<CrocoEnti
     }
 
     @Override
-    public ResourceLocation getEntityTexture(CrocoEntity entity) {
+    public ResourceLocation getTextureLocation(CrocoEntity entity) {
         return TEXTURE;
     }
 }

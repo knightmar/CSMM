@@ -15,33 +15,33 @@ public class ArmorEvent {
             PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
             //vision nocture lors du port de casque
-            if ((event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() == ModItems.BRONZE_HELMET.get())) {
-                player.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 20 * 99999, 0));
-            } else if (event.getFrom().getItem() == ModItems.BRONZE_HELMET.get() && event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty()) {
-                player.removePotionEffect(Effects.NIGHT_VISION);
+            if ((event.getEntityLiving().getItemBySlot(EquipmentSlotType.HEAD).getItem() == ModItems.BRONZE_HELMET.get())) {
+                player.addEffect(new EffectInstance(Effects.NIGHT_VISION, 20 * 99999, 0));
+            } else if (event.getFrom().getItem() == ModItems.BRONZE_HELMET.get() && event.getEntityLiving().getItemBySlot(EquipmentSlotType.HEAD).isEmpty()) {
+                player.removeEffect(Effects.NIGHT_VISION);
             }
             //effet de force lors du port de chestplate
-            if ((event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.BRONZE_CHESTPLATE.get())) {
-                player.addPotionEffect(new EffectInstance(Effects.STRENGTH, 20 * 99999999, 0));
-            } else if (event.getFrom().getItem() == ModItems.BRONZE_CHESTPLATE.get() && event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.CHEST).isEmpty()) {
-                player.removePotionEffect(Effects.STRENGTH);
+            if ((event.getEntityLiving().getItemBySlot(EquipmentSlotType.CHEST).getItem() == ModItems.BRONZE_CHESTPLATE.get())) {
+                player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 20 * 99999999, 0));
+            } else if (event.getFrom().getItem() == ModItems.BRONZE_CHESTPLATE.get() && event.getEntityLiving().getItemBySlot(EquipmentSlotType.CHEST).isEmpty()) {
+                player.removeEffect(Effects.DAMAGE_BOOST);
             }
 
-            if ((event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.LEGS).getItem() == ModItems.BRONZE_LEGGINGS.get())) {
-                player.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 20 * 99999999, 0));
-            } else if (event.getFrom().getItem() == ModItems.BRONZE_LEGGINGS.get() && event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.LEGS).isEmpty()) {
-                player.removePotionEffect(Effects.ABSORPTION);
+            if ((event.getEntityLiving().getItemBySlot(EquipmentSlotType.LEGS).getItem() == ModItems.BRONZE_LEGGINGS.get())) {
+                player.addEffect(new EffectInstance(Effects.ABSORPTION, 20 * 99999999, 0));
+            } else if (event.getFrom().getItem() == ModItems.BRONZE_LEGGINGS.get() && event.getEntityLiving().getItemBySlot(EquipmentSlotType.LEGS).isEmpty()) {
+                player.removeEffect(Effects.ABSORPTION);
             }
 
-            if ((event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET).getItem() == ModItems.BRONZE_BOOTS.get())) {
-                player.addPotionEffect(new EffectInstance(Effects.SPEED, 20 * 99999999, 1));
-            } else if (event.getFrom().getItem() == ModItems.BRONZE_BOOTS.get() && event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET).isEmpty()) {
-                player.removePotionEffect(Effects.SPEED);
+            if ((event.getEntityLiving().getItemBySlot(EquipmentSlotType.FEET).getItem() == ModItems.BRONZE_BOOTS.get())) {
+                player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 20 * 99999999, 1));
+            } else if (event.getFrom().getItem() == ModItems.BRONZE_BOOTS.get() && event.getEntityLiving().getItemBySlot(EquipmentSlotType.FEET).isEmpty()) {
+                player.removeEffect(Effects.MOVEMENT_SPEED);
             }
 
-            if ((event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() == ModItems.BACKPACK.get())) {
+            if ((event.getEntityLiving().getItemBySlot(EquipmentSlotType.CHEST).getItem() == ModItems.BACKPACK.get())) {
                 ModItems.backpackIsUsed = "true";
-            } else if (event.getFrom().getItem() == ModItems.BACKPACK.get() && event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.CHEST).isEmpty()) {
+            } else if (event.getFrom().getItem() == ModItems.BACKPACK.get() && event.getEntityLiving().getItemBySlot(EquipmentSlotType.CHEST).isEmpty()) {
                 ModItems.backpackIsUsed = "false";
             }
         }

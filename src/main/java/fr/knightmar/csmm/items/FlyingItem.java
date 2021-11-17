@@ -11,24 +11,24 @@ import net.minecraft.world.World;
 
 public class FlyingItem extends Item {
     public FlyingItem() {
-        super(new Item.Properties().maxStackSize(1).group(Main.items).rarity(Rarity.RARE));
+        super(new Item.Properties().stacksTo(1).tab(Main.items).rarity(Rarity.RARE));
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
         boolean mayfly = playerIn.getPersistentData().getBoolean("mayfly");
         if (!playerIn.isCreative()) {
             if (!mayfly) {
                 playerIn.getPersistentData().putBoolean("mayfly", true);
-                playerIn.abilities.allowFlying = true;
-                playerIn.abilities.setFlySpeed(0.05f);
+                playerIn.abilities.mayfly = true;
+                playerIn.abilities.setFlyingSpeed(0.05f);
             } else {
                 playerIn.getPersistentData().putBoolean("mayfly", false);
-                playerIn.abilities.allowFlying = false;
-                playerIn.abilities.isFlying = false;
-                playerIn.abilities.setFlySpeed(0f);
+                playerIn.abilities.mayfly = false;
+                playerIn.abilities.flying = false;
+                playerIn.abilities.setFlyingSpeed(0f);
             }
         }
-        return super.onItemRightClick(worldIn, playerIn, handIn);
+        return super.use(worldIn, playerIn, handIn);
     }
 }

@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 public class CrocoEntity extends MonsterEntity {
 
     private static final double speed = 0.25D;
-    private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.COOKED_MUTTON, Items.MUTTON, Items.COOKED_CHICKEN, Items.COOKED_BEEF, Items.BEEF);
+    private static final Ingredient TEMPTATION_ITEMS = Ingredient.of(Items.COOKED_MUTTON, Items.MUTTON, Items.COOKED_CHICKEN, Items.COOKED_BEEF, Items.BEEF);
 
 
     private int crocoTimer;
@@ -35,12 +35,12 @@ public class CrocoEntity extends MonsterEntity {
 
     //func_233666_p_ ---> registerAttributes()
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 30.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, speed)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 7)
-                .createMutableAttribute(Attributes.ATTACK_SPEED, 1)
-                .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0);
+        return MobEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 30.0D)
+                .add(Attributes.MOVEMENT_SPEED, speed)
+                .add(Attributes.ATTACK_DAMAGE, 7)
+                .add(Attributes.ATTACK_SPEED, 1)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 0);
 
 
 
@@ -66,8 +66,8 @@ public class CrocoEntity extends MonsterEntity {
     }
 
     @Override
-    protected int getExperiencePoints(PlayerEntity player) {
-        return 10 + this.world.rand.nextInt(20);
+    protected int getExperienceReward(PlayerEntity player) {
+        return 10 + this.level.random.nextInt(20);
     }
 
     @Override
@@ -77,17 +77,17 @@ public class CrocoEntity extends MonsterEntity {
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_RAVAGER_DEATH;
+        return SoundEvents.RAVAGER_DEATH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_RAVAGER_HURT;
+        return SoundEvents.RAVAGER_HURT;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ENTITY_RAVAGER_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.RAVAGER_STEP, 0.15F, 1.0F);
     }
 }
 

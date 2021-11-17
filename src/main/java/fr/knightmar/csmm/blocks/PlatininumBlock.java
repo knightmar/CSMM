@@ -12,7 +12,7 @@ public class PlatininumBlock extends Block {
 
 
     public PlatininumBlock() {
-        super(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).harvestTool(ToolType.PICKAXE).harvestLevel(4).setRequiresTool().setRequiresTool());
+        super(AbstractBlock.Properties.of(Material.METAL).strength(5F, 10F).harvestTool(ToolType.PICKAXE).harvestLevel(4).requiresCorrectToolForDrops());
     }
 
 }

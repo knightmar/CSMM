@@ -27,17 +27,17 @@ public class BronzeHammer extends PickaxeItem {
 
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
-        return this.efficiency - 2;
+        return this.speed - 2;
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        int rotH = (int) entityLiving.rotationPitch/2;
+    public boolean mineBlock(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
+        int rotH = (int) entityLiving.xRot/2;
         System.out.println("Yaw : " + rotH);
-        System.out.println("Yaw 2 : "+ entityLiving.rotationYaw);
-        System.out.println("Pitch : " + entityLiving.rotationPitch);
+        System.out.println("Yaw 2 : "+ entityLiving.yRot);
+        System.out.println("Pitch : " + entityLiving.xRot);
 
-        if (entityLiving.rotationPitch >= 32 || entityLiving.rotationPitch <=-32) {
+        if (entityLiving.xRot >= 32 || entityLiving.xRot <=-32) {
             System.out.println("bas ok");
             BlockPos pos1 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 1);
             BlockPos pos2 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ());
@@ -75,7 +75,7 @@ public class BronzeHammer extends PickaxeItem {
                 }
 
             }
-        } else if ((entityLiving.rotationYaw > -45 && entityLiving.rotationYaw < 45) || (entityLiving.rotationYaw > 315 && entityLiving.rotationYaw < 360) && entityLiving.rotationPitch < 30 && entityLiving.rotationPitch > -30) {
+        } else if ((entityLiving.yRot > -45 && entityLiving.yRot < 45) || (entityLiving.yRot > 315 && entityLiving.yRot < 360) && entityLiving.xRot < 30 && entityLiving.xRot > -30) {
             //(entityLiving.rotationYaw > -40 && entityLiving.rotationYaw < 40 && entityLiving.rotationPitch < 32 && entityLiving.rotationPitch > -32) {
             System.out.println("sud ok");
             BlockPos pos1 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ());
@@ -113,7 +113,7 @@ public class BronzeHammer extends PickaxeItem {
                     worldIn.destroyBlock(pos8, true);
                 }
             }
-        } else if ((entityLiving.rotationYaw > 135 && entityLiving.rotationYaw < 225) && (entityLiving.rotationPitch < 32 && entityLiving.rotationPitch > -32)) {
+        } else if ((entityLiving.yRot > 135 && entityLiving.yRot < 225) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
             System.out.println("nord ok");
             BlockPos pos1 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ());
             BlockPos pos2 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ());
@@ -150,7 +150,7 @@ public class BronzeHammer extends PickaxeItem {
                     worldIn.destroyBlock(pos8, true);
                 }
             }
-        }else if ((entityLiving.rotationYaw > 45 && entityLiving.rotationYaw < 135) && (entityLiving.rotationPitch < 32 && entityLiving.rotationPitch > -32)) {
+        }else if ((entityLiving.yRot > 45 && entityLiving.yRot < 135) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
             System.out.println("west ok");
             BlockPos pos1 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ());
             BlockPos pos2 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1);
@@ -187,7 +187,7 @@ public class BronzeHammer extends PickaxeItem {
                     worldIn.destroyBlock(pos8, true);
                 }
             }
-        }else if ((entityLiving.rotationYaw > 225 && entityLiving.rotationYaw < 315) && (entityLiving.rotationPitch < 32 && entityLiving.rotationPitch > -32)) {
+        }else if ((entityLiving.yRot > 225 && entityLiving.yRot < 315) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
             System.out.println("est ok");
             BlockPos pos1 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ());
             BlockPos pos2 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1);
@@ -225,7 +225,7 @@ public class BronzeHammer extends PickaxeItem {
                 }
             }
         }
-        return super.onBlockDestroyed(stack, worldIn, state, pos, entityLiving);
+        return super.mineBlock(stack, worldIn, state, pos, entityLiving);
 
     }
 

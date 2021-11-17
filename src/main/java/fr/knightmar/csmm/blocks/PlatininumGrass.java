@@ -7,7 +7,7 @@ import net.minecraftforge.common.ToolType;
 
 public class PlatininumGrass extends Block {
     public PlatininumGrass() {
-        super(AbstractBlock.Properties.create(Material.ORGANIC).hardnessAndResistance(1F, 1F).harvestTool(ToolType.SHOVEL));
+        super(AbstractBlock.Properties.of(Material.GRASS).strength(1F, 1F).harvestTool(ToolType.SHOVEL));
 
     }
 }

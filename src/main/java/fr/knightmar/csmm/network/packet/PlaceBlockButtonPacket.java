@@ -22,12 +22,12 @@ public class PlaceBlockButtonPacket {
 
     public static void handle(PlaceBlockButtonPacket packet, Supplier<NetworkEvent.Context> ctxProvider) {
         ServerPlayerEntity p = ctxProvider.get().getSender();
-        ServerWorld world = ctxProvider.get().getSender().getServerWorld();
+        ServerWorld world = ctxProvider.get().getSender().getLevel();
 
-        if (world != null && p != null) {
-            p.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 100, 5));
+        if (p != null) {
+            p.addEffect(new EffectInstance(Effects.JUMP, 100, 5));
 
-            p.setMotion(0, 0.5, 0);
+            p.setDeltaMovement(0, 0.5, 0);
 
         }
     }

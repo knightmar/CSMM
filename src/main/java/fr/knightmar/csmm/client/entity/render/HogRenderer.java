@@ -17,7 +17,7 @@ public class HogRenderer extends MobRenderer<HogEntity, HogModel<HogEntity>> {
     }
 
     @Override
-    public ResourceLocation getEntityTexture(HogEntity entity) {
+    public ResourceLocation getTextureLocation(HogEntity entity) {
         return TEXTURE;
     }
 }

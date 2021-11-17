@@ -4,7 +4,6 @@ package fr.knightmar.csmm.utils;
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.client.entity.render.CrocoRenderer;
 import fr.knightmar.csmm.client.entity.render.HogRenderer;
-import fr.knightmar.csmm.client.entity.render.TestRenderer;
 import fr.knightmar.csmm.init.ModEntityType;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,7 +19,6 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityType.HOG.get(), HogRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(ModEntityType.TEST.get(), TestRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityType.CROCO.get(), CrocoRenderer::new);
 
 

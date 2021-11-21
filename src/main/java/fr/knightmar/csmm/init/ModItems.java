@@ -9,6 +9,8 @@ import fr.knightmar.csmm.utils.CustomItemTiers;
 import fr.knightmar.csmm.utils.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -55,4 +57,8 @@ public class ModItems {
     public static final RegistryObject<Item> BRONZE_HAMMER = ITEMS.register("bronze_hammer", () -> new BronzeHammer(new Item.Properties().stacksTo(1).tab(Main.items).fireResistant(),1f));
 
     public static final RegistryObject<Item> FLYING_ITEM = ITEMS.register("flying_item", FlyingItem::new);
+
+    public static final RegistryObject<Item> MERINGUE = ITEMS.register("meringue",()->new Item(new Item.Properties()
+            .tab(Main.items)
+            .food(new Food.Builder().nutrition(5).saturationMod(2).meat().effect(()-> new EffectInstance(Effects.MOVEMENT_SPEED,20*120,0),1.0f).build())));
 }

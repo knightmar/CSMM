@@ -9,6 +9,7 @@
   "block.csmm.temp_block": "Counter block",
   "itemGroup.BLOCKS": "Blocks",
   "itemGroup.ITEMS": "Items",
+  "itemGroup.items": "Items",
   "block.csmm.reinforced_block": "Reinforced block",
   "item.csmm.platinum_ingot": "Platinum ingot",
   "item.csmm.platinum_sword": "Platinum Sword",
@@ -17,5 +18,7 @@
   "item.csmm.platinum_leggings": "Platinum leggings",
   "item.csmm.platinum_boots": "Platinum boots",
   "entity.csmm.hog": "Hog",
-  "entity.csmm.croco:": "Crocodile"
+  "entity.csmm.croco": "Crocodile",
+  "item.csmm.meringue" : "Meringue"
+
 }

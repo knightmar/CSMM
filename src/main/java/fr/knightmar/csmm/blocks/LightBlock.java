@@ -24,7 +24,7 @@ public class LightBlock extends Block {
 
     public LightBlock() {
         super(AbstractBlock.Properties.of(Material.GLASS).strength(2.8F, 2.8F).harvestTool(ToolType.PICKAXE));
-        this.registerDefaultState(this.defaultBlockState().setValue(INVERTED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(INVERTED, Boolean.TRUE));
 
     }
 
@@ -38,13 +38,13 @@ public class LightBlock extends Block {
 //        return new TileEntityLight();
 //    }
 
+    @Override
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(INVERTED);
+    }
 
-//    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-//        builder.add(INVERTED);
-//    }
-
-
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    @Override
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (worldIn.isClientSide) {
 
             return ActionResultType.SUCCESS;

@@ -56,10 +56,9 @@ public class Main {
         bus.addListener(this::onEntityAttributeCreation);
         bus.addListener(this::clientSetup);
 
-
-        ModSounds.SOUNDS.register(bus);
-        ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
+        ModItems.ITEMS.register(bus);
+        ModSounds.SOUNDS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
         BiomeInit.BIOMES.register(bus);

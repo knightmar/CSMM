@@ -18,5 +18,6 @@
   "item.csmm.platinum_boots": "Bottes en Platinum",
   "entity.csmm.hog": "Sanglier",
   "entity.csmm.croco": "Crocodile",
-  "item.csmm.meringue" : "Meringue"
+  "item.csmm.meringue" : "Meringue",
+  "itemGroup.ITEMS": "Items"
 }

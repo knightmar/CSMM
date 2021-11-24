@@ -61,4 +61,8 @@ public class ModItems {
     public static final RegistryObject<Item> MERINGUE = ITEMS.register("meringue",()->new Item(new Item.Properties()
             .tab(Main.items)
             .food(new Food.Builder().nutrition(5).saturationMod(2).meat().effect(()-> new EffectInstance(Effects.MOVEMENT_SPEED,20*120,0),1.0f).build())));
+
+
+    public static final RegistryObject<Item> HEAL_BUCKET = ITEMS.register("heal_bucket", ()-> new BucketItem(()->ModFluids.HEAL_FLUID.get(),new Item.Properties().stacksTo(1).tab(Main.items)));
+
 }

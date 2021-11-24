@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -61,6 +60,7 @@ public class Main {
         ModSounds.SOUNDS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
+        ModFluids.register(bus);
         BiomeInit.BIOMES.register(bus);
         BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(Main.MODID, "platinum_biome")), 5));
 
@@ -91,6 +91,11 @@ public class Main {
     private void clientSetup(final FMLClientSetupEvent event) {
         KeyBoard.register();
         RenderTypeLookup.setRenderLayer(ModBlocks.POLLENIUM_CROPS.get(), RenderType.cutout());
+
+        RenderTypeLookup.setRenderLayer(ModFluids.HEAL_FLUID.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.HEAL_BLOCK.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.HEAL_FLOWING.get(), RenderType.translucent());
+
 
     }
 

@@ -46,9 +46,7 @@ public class ModFeatures {
             generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_BRONZE_FEARTURE);
 
         }
-        if (Objects.equals(e.getName(), "platinum_biome")) {
-            generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_PLATINUM_FEARTURE);
-        }
+
 
 
     }

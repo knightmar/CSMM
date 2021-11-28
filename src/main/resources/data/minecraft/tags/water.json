@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "csmm:heal_fluid",
+    "csmm:heal_flowing"
+  ]
+}

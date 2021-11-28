@@ -10,6 +10,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -33,7 +34,6 @@ public class BronzeHammer extends PickaxeItem {
     @Override
     public boolean mineBlock(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
         int rotH = (int) entityLiving.xRot/2;
-        System.out.println("Yaw : " + rotH);
         System.out.println("Yaw 2 : "+ entityLiving.yRot);
         System.out.println("Pitch : " + entityLiving.xRot);
 
@@ -75,7 +75,7 @@ public class BronzeHammer extends PickaxeItem {
                 }
 
             }
-        } else if ((entityLiving.yRot > -45 && entityLiving.yRot < 45) || (entityLiving.yRot > 315 && entityLiving.yRot < 360) && entityLiving.xRot < 30 && entityLiving.xRot > -30) {
+        } else if (entityLiving.getDirection() == Direction.SOUTH){ //(entityLiving.yRot > -45 && entityLiving.yRot < 45) || (entityLiving.yRot > 315 && entityLiving.yRot < 360) && entityLiving.xRot < 30 && entityLiving.xRot > -30) {
             //(entityLiving.rotationYaw > -40 && entityLiving.rotationYaw < 40 && entityLiving.rotationPitch < 32 && entityLiving.rotationPitch > -32) {
             System.out.println("sud ok");
             BlockPos pos1 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ());
@@ -113,7 +113,7 @@ public class BronzeHammer extends PickaxeItem {
                     worldIn.destroyBlock(pos8, true);
                 }
             }
-        } else if ((entityLiving.yRot > 135 && entityLiving.yRot < 225) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
+        } else if (entityLiving.getDirection() == Direction.NORTH){ //(entityLiving.yRot > 135 && entityLiving.yRot < 225) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
             System.out.println("nord ok");
             BlockPos pos1 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ());
             BlockPos pos2 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ());
@@ -150,7 +150,7 @@ public class BronzeHammer extends PickaxeItem {
                     worldIn.destroyBlock(pos8, true);
                 }
             }
-        }else if ((entityLiving.yRot > 45 && entityLiving.yRot < 135) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
+        }else if (entityLiving.getDirection() == Direction.WEST){ //(entityLiving.yRot > 45 && entityLiving.yRot < 135) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
             System.out.println("west ok");
             BlockPos pos1 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ());
             BlockPos pos2 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1);
@@ -187,7 +187,7 @@ public class BronzeHammer extends PickaxeItem {
                     worldIn.destroyBlock(pos8, true);
                 }
             }
-        }else if ((entityLiving.yRot > 225 && entityLiving.yRot < 315) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
+        }else if (entityLiving.getDirection() == Direction.EAST){ //(entityLiving.yRot > 225 && entityLiving.yRot < 315) && (entityLiving.xRot < 32 && entityLiving.xRot > -32)) {
             System.out.println("est ok");
             BlockPos pos1 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ());
             BlockPos pos2 = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1);

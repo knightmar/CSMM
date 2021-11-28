@@ -13,6 +13,7 @@ public class CrocoModel<C extends CrocoEntity> extends EntityModel<C> {
     private final ModelRenderer oreille_droite;
     private final ModelRenderer oreille_gauche;
     private final ModelRenderer body;
+    private final ModelRenderer cube_corps_r1;
     private final ModelRenderer queue_haut;
     private final ModelRenderer queue_milieu;
     private final ModelRenderer queue_bas;
@@ -56,7 +57,13 @@ public class CrocoModel<C extends CrocoEntity> extends EntityModel<C> {
 
         body = new ModelRenderer(this);
         body.setPos(0.0F, 24.0F, 0.0F);
-        body.texOffs(0, 0).addBox(-5.0F, -5.0F, -10.0F, 10.0F, 4.0F, 19.0F, 0.0F, false);
+
+
+        cube_corps_r1 = new ModelRenderer(this);
+        cube_corps_r1.setPos(0.0F, -1.0F, -9.0F);
+        body.addChild(cube_corps_r1);
+        setRotationAngle(cube_corps_r1, 0.0175F, 0.0F, 0.0F);
+        cube_corps_r1.texOffs(0, 0).addBox(-5.0F, -4.0F, -1.0F, 10.0F, 4.0F, 19.0F, 0.0F, false);
 
         queue_haut = new ModelRenderer(this);
         queue_haut.setPos(0.0F, -2.0F, 8.0F);
@@ -151,8 +158,8 @@ public class CrocoModel<C extends CrocoEntity> extends EntityModel<C> {
     }
 
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.x = x;
-        modelRenderer.y = y;
-        modelRenderer.z = z;
+        modelRenderer.xRot = x;
+        modelRenderer.yRot = y;
+        modelRenderer.zRot = z;
     }
 }

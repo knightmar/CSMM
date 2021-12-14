@@ -60,7 +60,7 @@ public class Main {
         ModSounds.SOUNDS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
-        ModFluids.register(bus);
+        ModFluids.FLUIDS.register(bus);
         BiomeInit.BIOMES.register(bus);
         BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(Main.MODID, "platinum_biome")), 5));
 
@@ -91,11 +91,11 @@ public class Main {
     private void clientSetup(final FMLClientSetupEvent event) {
         KeyBoard.register();
         RenderTypeLookup.setRenderLayer(ModBlocks.POLLENIUM_CROPS.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.POLLENIUM_FLOWER.get(), RenderType.cutout());
 
         RenderTypeLookup.setRenderLayer(ModFluids.HEAL_FLUID.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(ModFluids.HEAL_BLOCK.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(ModFluids.HEAL_FLOWING.get(), RenderType.translucent());
-
 
     }
 

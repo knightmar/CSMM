@@ -6,9 +6,11 @@ import fr.knightmar.csmm.others.PolleniumCrops;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -41,6 +43,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> POLLENIUM_CROPS =
             BLOCKS.register("pollenium_crop", () -> new PolleniumCrops(AbstractBlock.Properties.copy(Blocks.WHEAT)));
+
+    public static final RegistryObject<Block> POLLENIUM_FLOWER = createBlock("pollenium_flower", ()-> new PolleniumFlower(AbstractBlock.Properties.copy(Blocks.DANDELION)));
 
 
     public static RegistryObject<Block> createBlock(String name, Supplier<? extends Block> supplier) {

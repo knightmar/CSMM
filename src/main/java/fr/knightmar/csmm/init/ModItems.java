@@ -65,6 +65,6 @@ public class ModItems {
 
 
 
-    public static final RegistryObject<Item> HEAL_BUCKET = ITEMS.register("heal_bucket", ()-> new BucketItem(()->ModFluids.HEAL_FLUID.get(),new Item.Properties().stacksTo(1).tab(Main.items)));
-
+    public static final RegistryObject<Item> HEAL_BUCKET = ITEMS.register("heal_bucket",
+            () -> new BucketItem(ModFluids.HEAL_FLUID, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET).tab(Main.items)));
 }

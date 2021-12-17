@@ -40,8 +40,8 @@ public class ModFluids {
     public static final ForgeFlowingFluid.Properties HEAL_PROPERTIES = new ForgeFlowingFluid.Properties(
             () -> ModFluids.HEAL_FLUID.get(), () -> ModFluids.HEAL_FLOWING.get(),
             FluidAttributes.builder(HEAL_STILL_RL, HEAL_FLOWING_RL).overlay(HEAL_OVERLAY_RL).rarity(Rarity.RARE)
-                    .luminosity(6).density(1).viscosity(1).temperature(300)/*.color(0x00FF00)*/.sound(SoundEvents.WATER_AMBIENT)
-                    .sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY)).slopeFindDistance(8).levelDecreasePerBlock(1)
+                    .luminosity(6).density(1).viscosity(2).temperature(300)/*.color(0x00FF00)*/.sound(SoundEvents.WATER_AMBIENT)
+                    .sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY)).slopeFindDistance(3).levelDecreasePerBlock(1)
             .canMultiply().explosionResistance(100.0F).tickRate(5).block(() -> ModFluids.HEAL_BLOCK.get())
             .bucket(() -> ModItems.HEAL_BUCKET.get());
 

@@ -1,10 +1,7 @@
 package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.Main;
-//import fr.knightmar.csmm.tileentity.TileEntityLight;
 import fr.knightmar.csmm.tileentity.TileEntityTemp;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 

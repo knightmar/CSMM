@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class TileEntityTemp extends TileEntity implements ITickableTileEntity {
 

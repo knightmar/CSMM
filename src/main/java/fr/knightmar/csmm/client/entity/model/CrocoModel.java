@@ -1,11 +1,9 @@
 package fr.knightmar.csmm.client.entity.model;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+
 import fr.knightmar.csmm.entities.CrocoEntity;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.EntityModel;
+
 
 public class CrocoModel<C extends CrocoEntity> extends EntityModel<C> {
     private final ModelRenderer head;

@@ -3,9 +3,9 @@ package fr.knightmar.csmm.network;
 
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.network.packet.PlaceBlockButtonPacket;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.network.NetworkRegistry;
-import net.minecraftforge.fml.network.simple.SimpleChannel;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.fmllegacy.network.NetworkRegistry;
+import net.minecraftforge.fmllegacy.network.simple.SimpleChannel;
 
 public class Network {
     public static final String PROTOCOL_VERSION = String.valueOf(1);

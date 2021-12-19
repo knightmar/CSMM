@@ -3,6 +3,7 @@ package fr.knightmar.csmm.init;
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.blocks.*;
 import fr.knightmar.csmm.others.PolleniumCrops;
+<<<<<<< Updated upstream
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -13,6 +14,16 @@ import net.minecraft.item.Item;
 import net.minecraft.potion.Effects;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
+=======
+
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Material;
+import net.minecraftforge.fmllegacy.RegistryObject;
+>>>>>>> Stashed changes
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -35,14 +46,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> PLATINIUM_STONE = createBlock("platinium_stone", PlatininumStone::new);
 
 
-    public static final RegistryObject<Block> PLATINIUM_ORE = createBlock("platinium_ore", () -> new Block(AbstractBlock.Properties.of(Material.METAL).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().harvestLevel(3)));
+    public static final RegistryObject<Block> PLATINIUM_ORE = createBlock("platinium_ore", () -> new Block(Block.Properties.of(Material.METAL).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().harvestLevel(3)));
 
     public static final RegistryObject<Block> HOME_BLOCK = createBlock("home_block", HomeBlock::new);
 
     //public static final RegistryObject<FlowingFluidBlock> PLATINIUM_FLOWING = new FlowingFluidBlock(() -> ModFluids.PLATINIUM_WATER, AbstractBlock.Properties.create(Material.WATER).doesNotBlockMovement().noDrops());
 
     public static final RegistryObject<Block> POLLENIUM_CROPS =
-            BLOCKS.register("pollenium_crop", () -> new PolleniumCrops(AbstractBlock.Properties.copy(Blocks.WHEAT)));
+            BLOCKS.register("pollenium_crop", () -> new PolleniumCrops(Block.Properties.copy(Blocks.WHEAT)));
 
     public static final RegistryObject<Block> POLLENIUM_FLOWER = createBlock("pollenium_flower", ()-> new PolleniumFlower(AbstractBlock.Properties.copy(Blocks.DANDELION)));
 

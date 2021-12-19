@@ -20,7 +20,7 @@ version = '1.2'
 group = 'fr.knightmar.csmm'
 archivesBaseName = 'knightmarMod'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -33,7 +33,7 @@ minecraft {
 
     //mappings channel: 'snapshot', version: '20210309-1.16.5'
     //mappings channel: 'official', version: '1.16.5'
-    mappings channel: 'parchment', version: '2021.10.10-1.16.5'
+    mappings channel: 'parchment', version: '2021.12.12-1.17.1'
 
 
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
@@ -96,7 +96,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.1.1'
 }
 
 jar {
@@ -108,7 +108,6 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : "${version}",
                 "Implementation-Vendor"   : "examplemodsareus",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }

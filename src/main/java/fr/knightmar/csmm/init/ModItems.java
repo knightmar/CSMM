@@ -7,11 +7,9 @@ import fr.knightmar.csmm.items.HomeItem;
 import fr.knightmar.csmm.utils.ArmorMaterial;
 import fr.knightmar.csmm.utils.CustomItemTiers;
 import fr.knightmar.csmm.utils.ModSpawnEggItem;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.*;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.client.renderer.EffectInstance;
+import net.minecraft.world.item.*;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -53,7 +51,7 @@ public class ModItems {
             ITEMS.register("pollenium_seeds", () -> new BlockItem(ModBlocks.POLLENIUM_CROPS.get(), new Item.Properties().tab(Main.items)));
 
     public static final RegistryObject<Item> POLLENIUM_SHARD = ITEMS.register("pollenium_shard", () -> new Item(new Item.Properties().tab(Main.items)));
-    public static final RegistryObject<ArmorItem> BACKPACK = ITEMS.register("backpack", () -> new ArmorItem(net.minecraft.item.ArmorMaterial.CHAIN, EquipmentSlotType.CHEST, new Item.Properties().stacksTo(1).tab(Main.items)));
+    public static final RegistryObject<ArmorItem> BACKPACK = ITEMS.register("backpack", () -> new ArmorItem(ArmorMaterial.BRONZE, EquipmentSlotType.CHEST, new Item.Properties().stacksTo(1).tab(Main.items)));
     public static final RegistryObject<Item> BRONZE_HAMMER = ITEMS.register("bronze_hammer", () -> new BronzeHammer(new Item.Properties().stacksTo(1).tab(Main.items).fireResistant(),1f));
 
     public static final RegistryObject<Item> FLYING_ITEM = ITEMS.register("flying_item", FlyingItem::new);

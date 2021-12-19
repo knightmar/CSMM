@@ -2,11 +2,10 @@ package fr.knightmar.csmm.data.recipe;
 
 import fr.knightmar.csmm.init.ModBlocks;
 import fr.knightmar.csmm.init.ModItems;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.crafting.Ingredient;
+
 
 import java.util.function.Consumer;
 

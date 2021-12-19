@@ -1,12 +1,7 @@
 package fr.knightmar.csmm.utils;
 
 import fr.knightmar.csmm.init.ModItems;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public enum CustomItemTiers implements IItemTier, IArmorMaterial {
     BRONZE(3, 400, 4.8F, 1.4F, 15, new LazyValue<>(() -> {

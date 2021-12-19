@@ -1,28 +1,40 @@
 package fr.knightmar.csmm;
 
 
+import fr.knightmar.csmm.client.entity.render.CrocoRenderer;
+import fr.knightmar.csmm.client.entity.render.HogRenderer;
 import fr.knightmar.csmm.entities.CrocoEntity;
 import fr.knightmar.csmm.entities.HogEntity;
 import fr.knightmar.csmm.event.ArmorEvent;
 import fr.knightmar.csmm.init.*;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.utils.KeyBoard;
+import fr.knightmar.csmm.utils.ModSpawnEggItem;
 import net.minecraft.client.renderer.RenderType;
+<<<<<<< Updated upstream
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+=======
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.ItemStack;
+>>>>>>> Stashed changes
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -101,6 +113,18 @@ public class Main {
 
     public void onServerStarting(FMLServerStartingEvent event) {
 
+    }
+    @SubscribeEvent
+    public static void onClientSetup(FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityType.HOG.get(), HogRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityType.CROCO.get(), CrocoRenderer::new);
+
+
+    }
+
+    @SubscribeEvent
+    public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
+        ModSpawnEggItem.initSpawnEggs();
     }
 
 }

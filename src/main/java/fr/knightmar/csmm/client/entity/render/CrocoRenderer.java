@@ -4,9 +4,9 @@ package fr.knightmar.csmm.client.entity.render;
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.client.entity.model.CrocoModel;
 import fr.knightmar.csmm.entities.CrocoEntity;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
+
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 public class CrocoRenderer extends MobRenderer<CrocoEntity, CrocoModel<CrocoEntity>> {
 

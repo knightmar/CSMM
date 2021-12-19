@@ -1,13 +1,13 @@
 package fr.knightmar.csmm.blocks;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraftforge.common.ToolType;
+
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Material;
+
 
 public class BlockBronzeOre extends Block {
     public BlockBronzeOre() {
-        super(AbstractBlock.Properties.of(Material.STONE).strength(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).requiresCorrectToolForDrops());
+        super(Block.Properties.of(Material.STONE).strength(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).requiresCorrectToolForDrops());
 
 
     }

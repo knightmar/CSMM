@@ -1,11 +1,10 @@
 package fr.knightmar.csmm.network.packet;
 
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.fml.network.NetworkEvent;
+
+import net.minecraft.client.renderer.EffectInstance;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.fmllegacy.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
@@ -21,8 +20,8 @@ public class PlaceBlockButtonPacket {
     }
 
     public static void handle(PlaceBlockButtonPacket packet, Supplier<NetworkEvent.Context> ctxProvider) {
-        ServerPlayerEntity p = ctxProvider.get().getSender();
-        ServerWorld world = ctxProvider.get().getSender().getLevel();
+        ServerPlayer p = ctxProvider.get().getSender();
+        ServerLevel level = ctxProvider.get().getSender().getLevel();
 
         if (p != null) {
             p.addEffect(new EffectInstance(Effects.JUMP, 100, 5));

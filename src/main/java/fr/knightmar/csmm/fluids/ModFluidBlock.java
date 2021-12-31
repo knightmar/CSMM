@@ -1,36 +1,37 @@
 package fr.knightmar.csmm.fluids;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.fluid.FlowingFluid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.property.Properties;
 
 import java.util.function.Supplier;
 
-public class ModFluidBlock extends FlowingFluidBlock {
-    public ITag.INamedTag<Fluid> fluidTag;
+public class ModFluidBlock extends LiquidBlock {
+    public Tag.Named<Fluid> fluidTag;
     public BlockState state;
-    public World world;
+    public Level level;
     public BlockPos blockPos;
     public LivingEntity liventity;
 
-    public ModFluidBlock(Supplier<? extends FlowingFluid> supplier, Properties properties, ITag.INamedTag<Fluid> fluidTag) {
+    public ModFluidBlock(Supplier<? extends FlowingFluid> supplier, Properties properties, Tag.Named<Fluid> fluidTag) {
         super(supplier, properties);
         this.fluidTag = fluidTag;
     }
 
     @Override
     @SuppressWarnings("deprecation")
-    public void entityInside(BlockState state, World world, BlockPos blockPos, Entity entity) {
+    public void entityInside(BlockState state, Level level, BlockPos blockPos, Entity entity) {
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new EffectInstance(Effects.HEAL, 1, 0, false, false, false));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 0, false, false, false));
         }
     }
 

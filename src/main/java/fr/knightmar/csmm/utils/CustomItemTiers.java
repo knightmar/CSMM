@@ -1,13 +1,21 @@
 package fr.knightmar.csmm.utils;
 
+
+
 import fr.knightmar.csmm.init.ModItems;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public enum CustomItemTiers implements IItemTier, IArmorMaterial {
-    BRONZE(3, 400, 4.8F, 1.4F, 15, new LazyValue<>(() -> {
+
+public enum CustomItemTiers implements Tier, ArmorMaterial {
+    BRONZE(3, 400, 4.8F, 1.4F, 15, new LazyLoadedValue<>(() -> {
         return Ingredient.of(ModItems.BRONZE_INGOT.get());
     })),
-    PLATINIUM(4, 3000, 10.0F, 5.0F, 20, new LazyValue<>(() -> {
+    PLATINIUM(4, 3000, 10.0F, 5.0F, 20, new LazyLoadedValue<>(() -> {
         return Ingredient.of(ModItems.PLATINIUM_INGOT.get());
     }));;
 
@@ -17,9 +25,9 @@ public enum CustomItemTiers implements IItemTier, IArmorMaterial {
     private final float efficiency;
     private final float attackDamage;
     private final int enchantability;
-    private final LazyValue<Ingredient> repairMaterial;
+    private final LazyLoadedValue<Ingredient> repairMaterial;
 
-    CustomItemTiers(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, LazyValue<Ingredient> repairMaterial) {
+    CustomItemTiers(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, LazyLoadedValue<Ingredient> repairMaterial) {
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
         this.efficiency = efficiency;
@@ -49,12 +57,12 @@ public enum CustomItemTiers implements IItemTier, IArmorMaterial {
     }
 
     @Override
-    public int getDurabilityForSlot(EquipmentSlotType slotIn) {
+    public int getDurabilityForSlot(EquipmentSlot slotIn) {
         return 0;
     }
 
     @Override
-    public int getDefenseForSlot(EquipmentSlotType slotIn) {
+    public int getDefenseForSlot(EquipmentSlot slotIn) {
         return 0;
     }
 

@@ -1,40 +1,31 @@
 package fr.knightmar.csmm.tileentity;
 
 import fr.knightmar.csmm.init.ModTileEntities;
-import net.minecraft.block.BlockState;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class TileEntityTemp extends TileEntity implements ITickableTileEntity {
-
+public class TileEntityTemp extends BlockEntity {
     private int counter = 0;
 
-
-    public TileEntityTemp() {
-        super(ModTileEntities.TEMP_TILE_ENTITY.get());
+    public TileEntityTemp(BlockPos pos, BlockState state){
+        super(ModTileEntities.TEMP_TILE_ENTITY.get(), pos, state);
     }
 
     @Override
-    public void load(BlockState state, CompoundNBT nbt) {
-        super.load(state, nbt);
+    public void load(CompoundTag nbt) {
+        super.load(nbt);
 
         this.setCounter(nbt.getInt("counter"));
     }
-
     @Override
-    public CompoundNBT save(CompoundNBT compound) {
+    public CompoundTag save(CompoundTag compound) {
         super.save(compound);
-
         compound.putInt("counter", this.getCounter());
-
         return compound;
-    }
-
-    @Override
-    public void tick() {
-        this.setCounter(getCounter() + 1);
     }
 
     public int getCounter() {
@@ -43,5 +34,8 @@ public class TileEntityTemp extends TileEntity implements ITickableTileEntity {
 
     public void setCounter(int counter) {
         this.counter = counter;
+    }
+    public static void tick(Level level, BlockPos pos, BlockState state, TileEntityTemp blockEntity){
+        blockEntity.setCounter(blockEntity.getCounter() + 1);
     }
 }

@@ -1,24 +1,16 @@
 package fr.knightmar.csmm.utils;
 
-<<<<<<< Updated upstream
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.dispenser.IBlockSource;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.Direction;
-=======
 
+
+import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.block.DispenserBlock;
->>>>>>> Stashed changes
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.fmllegacy.RegistryObject;
@@ -43,11 +35,11 @@ public class ModSpawnEggItem extends SpawnEggItem {
         final Map<EntityType<?>, SpawnEggItem> EGGS = ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class, null, "field_195987_b");
         DefaultDispenseItemBehavior dispenseBehaviour = new DefaultDispenseItemBehavior() {
             @Override
-            protected ItemStack execute(IBlockSource source, ItemStack stack) {
+            protected ItemStack execute(BlockSource source, ItemStack stack) {
                 Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
                 EntityType<?> type = ((SpawnEggItem) stack.getItem()).getType(stack.getTag());
                 type.spawn(source.getLevel(), stack, null, source.getPos().relative(direction),
-                        SpawnReason.DISPENSER, direction != Direction.UP, false);
+                        MobSpawnType.DISPENSER, direction != Direction.UP, false);
                 stack.shrink(1);
                 return stack;
             }
@@ -61,7 +53,7 @@ public class ModSpawnEggItem extends SpawnEggItem {
     }
 
     @Override
-    public EntityType<?> getType(CompoundNBT nbt) {
+    public EntityType<?> getType(CompoundTag nbt) {
         return this.entityTypeSupplier.get();
     }
 }

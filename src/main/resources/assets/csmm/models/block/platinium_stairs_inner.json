@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "csmm:block/platinium_bricks",
+    "top": "csmm:block/platinium_bricks",
+    "side": "csmm:block/platinium_bricks"
+  }
+}

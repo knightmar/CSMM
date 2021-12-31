@@ -2,19 +2,19 @@ package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.fluids.ModFluidBlock;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.FlowingFluid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.item.Rarity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -28,7 +28,7 @@ public class ModFluids {
     public static final ResourceLocation HEAL_OVERLAY_RL = new ResourceLocation(Main.MODID, "block/heal_overlay");
     public static final ResourceLocation HEAL_TAG_RL = new ResourceLocation(Main.MODID, "fluids/heal");
 
-    public static final ITag.INamedTag<Fluid> HEAL = FluidTags.createOptional(HEAL_TAG_RL);
+    public static final Tag.Named<Fluid> HEAL = FluidTags.createOptional(HEAL_TAG_RL);
 
     public static void init() {
     }    public static final RegistryObject<FlowingFluid> HEAL_FLUID = FLUIDS.register("heal_fluid",
@@ -45,8 +45,8 @@ public class ModFluids {
             .canMultiply().explosionResistance(100.0F).tickRate(5).block(() -> ModFluids.HEAL_BLOCK.get())
             .bucket(() -> ModItems.HEAL_BUCKET.get());
 
-    public static final RegistryObject<FlowingFluidBlock> HEAL_BLOCK = ModBlocks.BLOCKS.register("heal",
-            () -> new ModFluidBlock(() -> ModFluids.HEAL_FLUID.get(), AbstractBlock.Properties.of(Material.WATER)
+    public static final RegistryObject<LiquidBlock> HEAL_BLOCK = ModBlocks.BLOCKS.register("heal",
+            () -> new ModFluidBlock(() -> ModFluids.HEAL_FLUID.get(), Block.Properties.of(Material.WATER)
                     .strength(100.0F).noDrops().speedFactor(0.5F).lightLevel((state) -> {
                         return 6;
                     }), ModFluids.HEAL));

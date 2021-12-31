@@ -1,19 +1,7 @@
 {
   "variants": {
-    "facing=east": {
-      "model": "csmm:block/pollenium_flower",
-      "y": 90
-    },
-    "facing=north": {
-      "model": "csmm:block/pollenium_flower"
-    },
-    "facing=south": {
-      "model": "csmm:block/pollenium_flower",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "csmm:block/pollenium_flower",
-      "y": 270
+    "": {
+      "model" : "csmm:block/pollenium_flower"
     }
   }
 }

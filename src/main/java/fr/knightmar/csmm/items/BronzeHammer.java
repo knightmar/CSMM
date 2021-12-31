@@ -4,16 +4,8 @@ package fr.knightmar.csmm.items;
 import com.google.common.collect.ImmutableSet;
 import fr.knightmar.csmm.init.ModBlocks;
 import fr.knightmar.csmm.utils.CustomItemTiers;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
@@ -41,11 +33,10 @@ public class BronzeHammer extends PickaxeItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        int rotH = (int) entityLiving.xRot/2;
-        System.out.println("Yaw 2 : "+ entityLiving.yRot);
-        System.out.println("Pitch : " + entityLiving.xRot);
+        System.out.println("Yaw 2 : "+ entityLiving.yHeadRot);
+        System.out.println("Pitch : " + entityLiving.xRotO);
 
-        if (entityLiving.xRot >= 32 || entityLiving.xRot <=-32) {
+        if (entityLiving.xRotO >= 32 || entityLiving.xRotO <=-32) {
             System.out.println("bas ok");
             BlockPos pos1 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 1);
             BlockPos pos2 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ());

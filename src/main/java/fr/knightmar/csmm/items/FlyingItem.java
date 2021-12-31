@@ -2,6 +2,7 @@ package fr.knightmar.csmm.items;
 
 import fr.knightmar.csmm.Main;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -14,18 +15,18 @@ public class FlyingItem extends Item {
     }
 
     @Override
-    public ActionResult<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
+    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
         boolean mayfly = playerIn.getPersistentData().getBoolean("mayfly");
         if (!playerIn.isCreative()) {
             if (!mayfly) {
                 playerIn.getPersistentData().putBoolean("mayfly", true);
-                playerIn.abilities.mayfly = true;
-                playerIn.abilities.setFlyingSpeed(0.05f);
+                playerIn.getAbilities().mayfly = true;
+                playerIn.getAbilities().setFlyingSpeed(0.05f);
             } else {
                 playerIn.getPersistentData().putBoolean("mayfly", false);
-                playerIn.abilities.mayfly = false;
-                playerIn.abilities.flying = false;
-                playerIn.abilities.setFlyingSpeed(0f);
+                playerIn.getAbilities().mayfly = false;
+                playerIn.getAbilities().flying = false;
+                playerIn.getAbilities().setFlyingSpeed(0f);
             }
         }
         return super.use(worldIn, playerIn, handIn);

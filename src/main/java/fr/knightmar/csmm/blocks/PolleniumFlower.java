@@ -1,22 +1,25 @@
 package fr.knightmar.csmm.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.StateContainer;
-import net.minecraft.util.math.shapes.IBooleanFunction;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
+
+import net.minecraft.client.renderer.EffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 import java.util.stream.Stream;
 
-public class PolleniumFlower extends HorizontalBlock {
-    public PolleniumFlower(Properties p_i48377_1_) {
-        super(p_i48377_1_);
+public class PolleniumFlower extends FlowerBlock {
+    public PolleniumFlower() {
+        super(MobEffects.ABSORPTION,20*20,BlockBehaviour.Properties.copy(Blocks.DANDELION));
     }
-
     private static final VoxelShape SHAPE_E = Stream.of(
             Block.box(7, 0, 7, 8, 5, 8),
             Block.box(8, 4, 7, 9, 7, 8),
@@ -30,19 +33,5 @@ public class PolleniumFlower extends HorizontalBlock {
             Block.box(7, 7, 5, 9, 7, 6),
             Block.box(8, 7, 6, 9, 7, 9),
             Block.box(0, 7, 9, 2, 7, 11)
-    ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get();
-
-
-
-
-    @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
-    }
-
-    @Nullable
-    @Override
-    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-    }
+    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 }

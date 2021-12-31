@@ -3,6 +3,8 @@ package fr.knightmar.csmm.utils;
 import fr.knightmar.csmm.init.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -10,7 +12,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 
-public enum ArmorMaterial implements IArmorMaterial {
+public enum ArmorMaterial implements net.minecraft.world.item.ArmorMaterial {
     PLATINIUM("platinium", 40, new int[]{4, 8, 10, 4}, 20, SoundEvents.ARMOR_EQUIP_GENERIC, 5.0F, 5.0F, () -> {
         return Ingredient.of(ModItems.PLATINIUM_INGOT.get());
     }),
@@ -27,7 +29,7 @@ public enum ArmorMaterial implements IArmorMaterial {
     private final SoundEvent soundEvent;
     private final float toughness;
     private final float knockbackResistance;
-    private final LazyValue<Ingredient> repairMaterial;
+    private final LazyLoadedValue<Ingredient> repairMaterial;
 
     private ArmorMaterial(String p_i231593_3_, int p_i231593_4_, int[] p_i231593_5_, int p_i231593_6_, SoundEvent p_i231593_7_, float p_i231593_8_, float p_i231593_9_, Supplier<Ingredient> p_i231593_10_) {
         this.name = p_i231593_3_;
@@ -37,17 +39,17 @@ public enum ArmorMaterial implements IArmorMaterial {
         this.soundEvent = p_i231593_7_;
         this.toughness = p_i231593_8_;
         this.knockbackResistance = p_i231593_9_;
-        this.repairMaterial = new LazyValue<>(p_i231593_10_);
+        this.repairMaterial = new LazyLoadedValue<>(p_i231593_10_);
     }
 
 
     @Override
-    public int getDurabilityForSlot(EquipmentSlotType slotIn) {
+    public int getDurabilityForSlot(EquipmentSlot slotIn) {
         return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDefenseForSlot(EquipmentSlotType slotIn) {
+    public int getDefenseForSlot(EquipmentSlot slotIn) {
         return this.damageReductionAmountArray[slotIn.getIndex()];
     }
 

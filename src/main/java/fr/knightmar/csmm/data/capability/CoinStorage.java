@@ -1,16 +1,16 @@
 package fr.knightmar.csmm.data.capability;
 
 public class CoinStorage implements ICoinCapability{
-    private int power = 0;
+    private int coin = 0;
 
     @Override
     public int getCoin() {
-        return power;
+        return coin;
     }
 
     @Override
     public void setCoin(int value) {
-        this.power = clamp(value);
+        this.coin = clamp(value);
     }
 
     private int clamp(int value) {

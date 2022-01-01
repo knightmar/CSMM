@@ -2,8 +2,6 @@ package fr.knightmar.csmm;
 
 
 import fr.knightmar.csmm.data.capability.CoinCapability;
-import fr.knightmar.csmm.data.capability.CoinStorage;
-import fr.knightmar.csmm.data.capability.ICoinCapability;
 import fr.knightmar.csmm.event.ArmorEvent;
 import fr.knightmar.csmm.event.ClientEvents;
 import fr.knightmar.csmm.event.CommonEvents;
@@ -22,10 +20,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

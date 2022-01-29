@@ -1,13 +1,16 @@
 package fr.knightmar.csmm.event;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import fr.knightmar.csmm.commands.MoneyCommand;
 import fr.knightmar.csmm.data.capability.CoinCapability;
 import fr.knightmar.csmm.data.capability.CoinStorage;
 import fr.knightmar.csmm.data.capability.ICoinCapability;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.server.command.ConfigCommand;

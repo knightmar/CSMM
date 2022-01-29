@@ -4,10 +4,12 @@ import fr.knightmar.csmm.client.gui.TestGui;
 import fr.knightmar.csmm.utils.KeyBoard;
 import fr.knightmar.csmm.init.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ClientEvents {
@@ -27,12 +29,13 @@ public class ClientEvents {
             }
         }
     }
-
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
         Minecraft.getInstance().font.draw(event.getMatrixStack(), ModItems.backpackIsUsed, 0, 0, 0);
     }
-    }
+
+
+}
 
 

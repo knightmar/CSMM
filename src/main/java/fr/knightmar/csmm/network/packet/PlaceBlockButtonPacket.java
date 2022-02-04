@@ -6,8 +6,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraftforge.fmllegacy.network.NetworkEvent;
+import net.minecraftforge.network.NetworkEvent;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class PlaceBlockButtonPacket {
@@ -21,9 +22,9 @@ public class PlaceBlockButtonPacket {
         return new PlaceBlockButtonPacket();
     }
 
-    public static void handle(PlaceBlockButtonPacket packet, Supplier<NetworkEvent.Context> ctxProvider) {
-        ServerPlayer p = ctxProvider.get().getSender();
-        ServerLevel level = ctxProvider.get().getSender().getLevel();
+    public static void handle(PlaceBlockButtonPacket packet, Supplier<NetworkEvent.Context> ctx) {
+        ServerPlayer p = ctx.get().getSender();
+        ServerLevel level = Objects.requireNonNull(ctx.get().getSender()).getLevel();
 
         if (p != null) {
             p.addEffect(new MobEffectInstance(MobEffects.JUMP, 100, 5));

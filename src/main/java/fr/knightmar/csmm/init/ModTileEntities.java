@@ -3,9 +3,9 @@ package fr.knightmar.csmm.init;
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.tileentity.TileEntityTemp;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModTileEntities {
 

@@ -3,7 +3,6 @@ buildscript {
         maven { url = 'https://files.minecraftforge.net/maven' }
         maven { url = 'https://maven.parchmentmc.org' }
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
@@ -20,7 +19,7 @@ version = '1.2'
 group = 'fr.knightmar.csmm'
 archivesBaseName = 'knightmarMod'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -33,7 +32,7 @@ minecraft {
 
     //mappings channel: 'snapshot', version: '20210309-1.16.5'
     //mappings channel: 'official', version: '1.16.5'
-    mappings channel: 'parchment', version: '2021.12.12-1.17.1'
+    mappings channel: 'parchment', version: '2022.01.23-1.18.1'
 
 
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
@@ -96,9 +95,8 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.17.1-37.1.1'
-    implementation fg.deobf('software.bernie.geckolib:geckolib-1.17.1-forge:3.0.14')
-
+    minecraft 'net.minecraftforge:forge:1.18.1-39.0.63'
+    implementation fg.deobf('software.bernie.geckolib:geckolib-1.18-forge:3.0.10')
 }
 
 repositories{

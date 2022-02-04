@@ -3,7 +3,7 @@ package fr.knightmar.csmm.data.capability;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.network.packet.CoinPacket;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.fmllegacy.network.PacketDistributor;
+import net.minecraftforge.network.PacketDistributor;
 
 public class PlayerCoinStorage extends CoinStorage{
     private final ServerPlayer player;

@@ -3,7 +3,6 @@ package fr.knightmar.csmm.tileentity;
 import fr.knightmar.csmm.init.ModTileEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,11 +21,11 @@ public class TileEntityTemp extends BlockEntity {
         this.setCounter(nbt.getInt("counter"));
     }
     @Override
-    public CompoundTag save(CompoundTag compound) {
-        super.save(compound);
+    public void saveAdditional(CompoundTag compound) {
+        super.saveAdditional(compound);
         compound.putInt("counter", this.getCounter());
-        return compound;
     }
+
 
     public int getCounter() {
         return counter;

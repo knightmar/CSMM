@@ -9,16 +9,11 @@ import fr.knightmar.csmm.init.*;
 import fr.knightmar.csmm.network.Network;
 import fr.knightmar.csmm.utils.KeyBoard;
 import fr.knightmar.csmm.utils.ModSpawnEggItem;
-import fr.knightmar.csmm.world.gen.OreGeneration;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -60,22 +55,15 @@ public class Main {
         ModTileEntities.TILE_ENTITIES.register(bus);
         ModEntityType.ENTITY_TYPES.register(bus);
         ModFluids.FLUIDS.register(bus);
-        BiomeInit.BIOMES.register(bus);
-        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(Main.MODID, "platinum_biome")), 5));
-
-        Network.registerNetworkPackets();
-
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        OreGeneration generation = new OreGeneration();
-        MinecraftForge.EVENT_BUS.register(generation);
         MinecraftForge.EVENT_BUS.register(new ArmorEvent());
-
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(CoinCapability.class);
         MinecraftForge.EVENT_BUS.register(CommonEvents.class);
         MinecraftForge.EVENT_BUS.register(ClientEvents.class);
+        Network.registerNetworkPackets();
 
     }
 

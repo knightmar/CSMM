@@ -4,8 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.network.Network;
-import fr.knightmar.csmm.network.packet.PlaceBlockButtonPacket;
-import fr.knightmar.csmm.network.packet.TestPacket;
+import fr.knightmar.csmm.network.packet.LootBoxPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -14,13 +13,7 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-
-
-public class TestGui extends Screen {
+public class LootBoxGui extends Screen {
     public static String toOverlay;
     private final ResourceLocation GUI_TEXTURE_LOCATION = new ResourceLocation(Main.MODID, "textures/gui/gui_base.png");
     private final int xSize = 256;
@@ -29,7 +22,7 @@ public class TestGui extends Screen {
     private int guiLeft;
     private int guiTop;
 
-    public TestGui() {
+    public LootBoxGui() {
         super(new TextComponent("gui.guispells.title"));
         assert Minecraft.getInstance().player != null;
         this.level = Minecraft.getInstance().player.level;
@@ -44,8 +37,7 @@ public class TestGui extends Screen {
             toOverlay = "Button press";
             System.out.println(toOverlay);
             this.onClose();
-
-            Network.CHANNEL.sendToServer(new TestPacket(1));
+            Network.CHANNEL.sendToServer(new LootBoxPacket());
 
         }));
 

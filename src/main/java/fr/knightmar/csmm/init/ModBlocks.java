@@ -1,10 +1,7 @@
 package fr.knightmar.csmm.init;
 
 import fr.knightmar.csmm.Main;
-import fr.knightmar.csmm.blocks.BlockTemp;
-import fr.knightmar.csmm.blocks.HomeBlock;
-import fr.knightmar.csmm.blocks.LightBlock;
-import fr.knightmar.csmm.blocks.PolleniumFlower;
+import fr.knightmar.csmm.blocks.*;
 import fr.knightmar.csmm.others.PolleniumCrops;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -13,9 +10,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
@@ -43,6 +40,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHISELED_PLATINIUM_BRICKS = createBlock("chiseled_platinium_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SMOOTH_PLATINIUM_BRICKS = createBlock("smooth_platinium_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PLATINIUM_STAIRS = createBlock("platinium_stairs", () -> new StairBlock(PLATINIUM_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.METAL).strength(1.5F,6.0F)));
+    public static final RegistryObject<Block> LOOT_BOX = createBlock("loot_blox", LootBox::new);
 
 
     public static RegistryObject<Block> createBlock(String name, Supplier<? extends Block> supplier) {

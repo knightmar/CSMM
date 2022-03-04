@@ -85,8 +85,3 @@ public class CrocoEntity extends PathfinderMob implements IAnimatable, IAnimatio
         return tickCount;
     }
 }
-
-
-
-
-

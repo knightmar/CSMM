@@ -39,7 +39,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CRACKED_PLATINIUM_BRICKS = createBlock("cracked_platinium_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CHISELED_PLATINIUM_BRICKS = createBlock("chiseled_platinium_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SMOOTH_PLATINIUM_BRICKS = createBlock("smooth_platinium_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F, 6.0F).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> PLATINIUM_STAIRS = createBlock("platinium_stairs", () -> new StairBlock(PLATINIUM_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.METAL).strength(1.5F,6.0F)));
+    public static final RegistryObject<Block> PLATINIUM_STAIRS = createBlock("platinium_stairs", () -> new StairBlock(PLATINIUM_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.METAL).strength(1.5F, 6.0F)));
     public static final RegistryObject<Block> LOOT_BOX = createBlock("loot_blox", LootBox::new);
 
 

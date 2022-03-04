@@ -62,7 +62,7 @@ public class Main {
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(CoinCapability.class);
         MinecraftForge.EVENT_BUS.register(CommonEvents.class);
-        MinecraftForge.EVENT_BUS.register(ClientEvents.class);
+        MinecraftForge.EVENT_BUS.register(new ClientEvents());
         Network.registerNetworkPackets();
 
     }

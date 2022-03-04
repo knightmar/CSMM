@@ -4,7 +4,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import fr.knightmar.csmm.Main;
 import fr.knightmar.csmm.network.Network;
-import fr.knightmar.csmm.network.packet.PlaceBlockButtonPacket;
 import fr.knightmar.csmm.network.packet.TestPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
@@ -12,27 +11,23 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-
-
+@OnlyIn(Dist.CLIENT)
 public class TestGui extends Screen {
     public static String toOverlay;
     private final ResourceLocation GUI_TEXTURE_LOCATION = new ResourceLocation(Main.MODID, "textures/gui/gui_base.png");
     private final int xSize = 256;
     private final int ySize = 202;
-    private final Level level;
+//    private final Level level;
     private int guiLeft;
     private int guiTop;
 
     public TestGui() {
-        super(new TextComponent("gui.guispells.title"));
+        super(new TextComponent("gui.test.title"));
         assert Minecraft.getInstance().player != null;
-        this.level = Minecraft.getInstance().player.level;
+//        this.level = Minecraft.getInstance().player.level;
     }
 
     //init Gui

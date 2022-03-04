@@ -95,7 +95,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.1-39.0.63'
+    minecraft 'net.minecraftforge:forge:1.18.1-39.0.76'
     implementation fg.deobf('software.bernie.geckolib:geckolib-1.18-forge:3.0.10')
 }
 

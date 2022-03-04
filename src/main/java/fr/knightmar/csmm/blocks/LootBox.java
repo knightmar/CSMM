@@ -1,6 +1,10 @@
 package fr.knightmar.csmm.blocks;
 
+//import fr.knightmar.csmm.client.gui.LootBoxContainer;
+
 import fr.knightmar.csmm.client.gui.LootBoxGui;
+import fr.knightmar.csmm.network.Network;
+import fr.knightmar.csmm.network.packet.LootBoxPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -21,7 +25,6 @@ public class LootBox extends Block {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pLevel.isClientSide()) {
             Minecraft.getInstance().setScreen(new LootBoxGui());
-
         }
         return InteractionResult.SUCCESS;
     }

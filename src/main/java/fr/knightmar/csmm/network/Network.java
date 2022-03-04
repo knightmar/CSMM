@@ -25,7 +25,7 @@ public class Network {
     public static void registerNetworkPackets() {
         CHANNEL.registerMessage(0, PlaceBlockButtonPacket.class, PlaceBlockButtonPacket::encode, PlaceBlockButtonPacket::decode, PlaceBlockButtonPacket::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
         CHANNEL.registerMessage(1, CoinPacket.class, CoinPacket::encode, CoinPacket::decode, CoinPacket::handle, Optional.of(NetworkDirection.PLAY_TO_CLIENT));
-        CHANNEL.registerMessage(2, LootBoxPacket.class, LootBoxPacket::encode, LootBoxPacket::decode, LootBoxPacket::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
-        CHANNEL.registerMessage(2, TestPacket.class, TestPacket::encode, TestPacket::decode, TestPacket::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(2, LootBoxPacket.class, LootBoxPacket::encode, LootBoxPacket::decode, LootBoxPacket::handle, Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+        CHANNEL.registerMessage(3, TestPacket.class, TestPacket::encode, TestPacket::decode, TestPacket::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
     }
 }

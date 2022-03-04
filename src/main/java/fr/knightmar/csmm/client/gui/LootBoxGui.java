@@ -11,8 +11,12 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class LootBoxGui extends Screen {
     public static String toOverlay;
     private final ResourceLocation GUI_TEXTURE_LOCATION = new ResourceLocation(Main.MODID, "textures/gui/gui_base.png");
@@ -27,8 +31,6 @@ public class LootBoxGui extends Screen {
         assert Minecraft.getInstance().player != null;
         this.level = Minecraft.getInstance().player.level;
     }
-
-    //init Gui
     protected void init() {
         this.guiLeft = (this.width - this.xSize) / 2;
         this.guiTop = (this.height - this.ySize) / 2;
@@ -37,18 +39,15 @@ public class LootBoxGui extends Screen {
             toOverlay = "Button press";
             System.out.println(toOverlay);
             this.onClose();
-            Network.CHANNEL.sendToServer(new LootBoxPacket());
-
+            System.out.println("gui button");
         }));
 
     }
-
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTicks) {
         drawBackground(poseStack);
         super.render(poseStack, mouseX, mouseY, partialTicks);
     }
-
     private void drawBackground(PoseStack poseStack) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1F);
